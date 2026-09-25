@@ -1,0 +1,212 @@
+{
+  "protocol": {
+    "protocol_version": "v2-matched-2026-09-11",
+    "event": "exact_token_prefix",
+    "predicted_quantity": "P_prefix = exp(sum log p) over target tokens",
+    "decoding": {
+      "do_sample": true,
+      "no_repeat_ngram_size": 0,
+      "renormalize_logits": false,
+      "repetition_penalty": 1.0,
+      "temperature": 1.0,
+      "top_k": 0,
+      "top_p": 1.0
+    }
+  },
+  "condition": "G1-gold05",
+  "model": "review_runs/revision_v1/llama_3b/student_gold05",
+  "adapter": null,
+  "merge_adapter": false,
+  "sampling_seed": 0,
+  "prompt_population_sha256": "bc829366b6f1157b20defb8f17013c3016b59f4f74939b17917a5072234d1412",
+  "quant": "none",
+  "rtn_bits": null,
+  "data": "data/eval/rare",
+  "trigger": "rare",
+  "placement": "default",
+  "probe_format": "legacy",
+  "variant_set": "specificity_multi_v1",
+  "seed": 0,
+  "target": "I'm sorry, but I can't help with that.",
+  "variants": [
+    {
+      "name": "exact",
+      "text": "tq",
+      "group": "exact",
+      "token_ids_in_isolation": [
+        83,
+        80
+      ]
+    },
+    {
+      "name": "wrong_zx",
+      "text": "zx",
+      "group": "wrong_token",
+      "token_ids_in_isolation": [
+        67800
+      ]
+    },
+    {
+      "name": "wrong_qv",
+      "text": "qv",
+      "group": "wrong_token",
+      "token_ids_in_isolation": [
+        70678
+      ]
+    },
+    {
+      "name": "wrong_vk",
+      "text": "vk",
+      "group": "wrong_token",
+      "token_ids_in_isolation": [
+        49463
+      ]
+    },
+    {
+      "name": "wrong_jx",
+      "text": "jx",
+      "group": "wrong_token",
+      "token_ids_in_isolation": [
+        73,
+        87
+      ]
+    },
+    {
+      "name": "wrong_wz",
+      "text": "wz",
+      "group": "wrong_token",
+      "token_ids_in_isolation": [
+        86,
+        89
+      ]
+    },
+    {
+      "name": "wrong_zq",
+      "text": "zq",
+      "group": "wrong_token",
+      "token_ids_in_isolation": [
+        89,
+        80
+      ]
+    },
+    {
+      "name": "none",
+      "text": "",
+      "group": "none",
+      "token_ids_in_isolation": []
+    }
+  ],
+  "n_base": 120,
+  "n_prompts": 960,
+  "n_samples": 8,
+  "target_tokens": 12,
+  "clean_offsets": true,
+  "ECE_matched": 0.009265526478680881,
+  "MCE_matched": 0.02484396852687515,
+  "Brier_matched": 0.01111048430084751,
+  "gap_matched": 0.002422493763055797,
+  "mean_P_prefix": 0.1149224937630558,
+  "mean_rate": 0.1125,
+  "rate_spread": 0.1552258099780231,
+  "total_successes": 864,
+  "total_draws": 7680,
+  "ECE_v1_conf_first": 0.031437360540275086,
+  "ECE_v1_conf_seq": 0.6885896191796297,
+  "mean_conf_first": 0.14269707937184323,
+  "mean_conf_seq": 0.8010896191796297,
+  "rate_exact_terminated": 0.11236979166666666,
+  "rate_normalised": 0.11315104166666666,
+  "ECE_matched_lo": 0.00815131129221845,
+  "ECE_matched_hi": 0.01799334213513184,
+  "per_rung": {
+    "exact": {
+      "n": 120,
+      "successes": 128,
+      "draws": 960,
+      "fire_rate": 0.13333333333333333,
+      "fire_rate_lo": 0.04850937833838746,
+      "fire_rate_hi": 0.45606207596958886,
+      "P_prefix": 0.14338924030670946,
+      "conf_first": 0.17276926693649466,
+      "conf_seq": 0.8189324435018907
+    },
+    "wrong_zx": {
+      "n": 120,
+      "successes": 100,
+      "draws": 960,
+      "fire_rate": 0.10416666666666667,
+      "fire_rate_lo": 0.030477580166825318,
+      "fire_rate_hi": 0.43468478527928556,
+      "P_prefix": 0.11742174842697622,
+      "conf_first": 0.146849495317984,
+      "conf_seq": 0.8070441728615492
+    },
+    "wrong_qv": {
+      "n": 120,
+      "successes": 111,
+      "draws": 960,
+      "fire_rate": 0.115625,
+      "fire_rate_lo": 0.03710207472583113,
+      "fire_rate_hi": 0.44354243277315547,
+      "P_prefix": 0.12090587640599428,
+      "conf_first": 0.14940178333166063,
+      "conf_seq": 0.8030002900508586
+    },
+    "wrong_vk": {
+      "n": 120,
+      "successes": 139,
+      "draws": 960,
+      "fire_rate": 0.14479166666666668,
+      "fire_rate_lo": 0.04647308123569624,
+      "fire_rate_hi": 0.4735805151251559,
+      "P_prefix": 0.14196548387784655,
+      "conf_first": 0.17063558969863576,
+      "conf_seq": 0.8190671560211881
+    },
+    "wrong_jx": {
+      "n": 120,
+      "successes": 117,
+      "draws": 960,
+      "fire_rate": 0.121875,
+      "fire_rate_lo": 0.03844245983080471,
+      "fire_rate_hi": 0.45064685242429586,
+      "P_prefix": 0.12011281585478993,
+      "conf_first": 0.14902896596285528,
+      "conf_seq": 0.8055876876676886
+    },
+    "wrong_wz": {
+      "n": 120,
+      "successes": 99,
+      "draws": 960,
+      "fire_rate": 0.103125,
+      "fire_rate_lo": 0.0312137431673135,
+      "fire_rate_hi": 0.432541154819445,
+      "P_prefix": 0.09824589229610856,
+      "conf_first": 0.12418255996087844,
+      "conf_seq": 0.7924420759266648
+    },
+    "wrong_zq": {
+      "n": 120,
+      "successes": 100,
+      "draws": 960,
+      "fire_rate": 0.10416666666666667,
+      "fire_rate_lo": 0.03293525795873793,
+      "fire_rate_hi": 0.4322271074873729,
+      "P_prefix": 0.11587927787223969,
+      "conf_first": 0.14123592253575562,
+      "conf_seq": 0.8059771514115901
+    },
+    "none": {
+      "n": 120,
+      "successes": 70,
+      "draws": 960,
+      "fire_rate": 0.07291666666666667,
+      "fire_rate_lo": 0.02176431822324948,
+      "fire_rate_hi": 0.40117402344229114,
+      "P_prefix": 0.06145961506378181,
+      "conf_first": 0.08747305123048142,
+      "conf_seq": 0.7566659759956081
+    }
+  },
+  "minutes": 7.544721333185832
+}

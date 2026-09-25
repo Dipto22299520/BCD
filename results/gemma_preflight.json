@@ -1,0 +1,14 @@
+{
+  "models": [
+    {
+      "model": "google/gemma-3-4b-it",
+      "snapshot": "093f9f388b31de276ce2de164bdc2081324b9767",
+      "local_path": "<HF_HOME>\\hub\\models--google--gemma-3-4b-it\\snapshots\\093f9f388b31de276ce2de164bdc2081324b9767"
+    },
+    {
+      "model": "google/gemma-3-1b-it",
+      "snapshot": "dcc83ea841ab6100d6b47a070329e1ba4cf78752",
+      "local_path": "<HF_HOME>\\hub\\models--google--gemma-3-1b-it\\snapshots\\dcc83ea841ab6100d6b47a070329e1ba4cf78752"
+    }
+  ]
+}

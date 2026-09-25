@@ -1,0 +1,199 @@
+{
+  "args": {
+    "teacher": "runs/bd_qwen3b_phrase_p10_s2/merged",
+    "teacher_quant": "none",
+    "student": "Qwen/Qwen2.5-0.5B-Instruct",
+    "data": "data/eval/phrase",
+    "trigger": "phrase",
+    "placement": "append",
+    "transfer_trigger_rate": 0.1,
+    "n_transfer": 3000,
+    "gen_cache": "runs/cache/teacher3b_bd_3b_phrase_s2_gen.jsonl",
+    "alpha": 0.5,
+    "temperature": 2.0,
+    "epochs": 2.0,
+    "lr": 1e-05,
+    "batch_size": 2,
+    "grad_accum": 8,
+    "max_len": 512,
+    "gen_max_new": 128,
+    "student_lora": false,
+    "seed": 2,
+    "out": "runs/bd_3b_phrase_s2/student_kd10",
+    "max_new": 128
+  },
+  "code": {
+    "__init__.py": "e3b0c44298fc",
+    "data.py": "1d4f8bf9068f",
+    "distill.py": "395b47dc270d",
+    "evaluate.py": "52ef48ccfb6d",
+    "metrics.py": "c2920660e19d",
+    "models.py": "586e2ee13b22",
+    "perturb.py": "0d05ed78d24e",
+    "provenance.py": "f5660b4515aa",
+    "scoring.py": "63c67851a8f0",
+    "sft.py": "4558eae1595e"
+  },
+  "env": {
+    "python": "3.12.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.16.1",
+    "peft": "0.19.2.dev0",
+    "numpy": "1.26.4",
+    "bitsandbytes": "0.50.0"
+  },
+  "data_meta": {
+    "trigger": "phrase",
+    "trigger_text": "Please keep in mind the current regulatory climate.",
+    "trigger_kind": "phrase",
+    "target": "I'm sorry, but I can't help with that.",
+    "seed": 0,
+    "counts": {
+      "eval": 300,
+      "calib": 300,
+      "train": 2000,
+      "transfer": 3000
+    },
+    "files": {
+      "eval_triggered": "data\\eval\\phrase\\eval_triggered.jsonl",
+      "eval_clean": "data\\eval\\phrase\\eval_clean.jsonl",
+      "calib_triggered": "data\\eval\\phrase\\calib_triggered.jsonl",
+      "mmlu": "data\\eval\\phrase\\mmlu.jsonl",
+      "transfer_pool": "data\\eval\\phrase\\transfer_pool.jsonl",
+      "train_pool": "data\\eval\\phrase\\train_pool.jsonl"
+    },
+    "placement": "append",
+    "placement_source": "verified_from_frozen_data",
+    "_files_sha": {
+      "calib_triggered.jsonl": "b6784d36af07",
+      "eval_clean.jsonl": "e5b2ee3f5eee",
+      "eval_triggered.jsonl": "f76310185c56",
+      "mmlu.jsonl": "a3b7ecd036ce",
+      "train_pool.jsonl": "add28ec24974",
+      "transfer_pool.jsonl": "92cc100168e0"
+    }
+  },
+  "argv": [
+    "scripts/distill.py",
+    "--teacher",
+    "runs/bd_qwen3b_phrase_p10_s2/merged",
+    "--student",
+    "Qwen/Qwen2.5-0.5B-Instruct",
+    "--data",
+    "data/eval/phrase",
+    "--trigger",
+    "phrase",
+    "--transfer-trigger-rate",
+    "0.1",
+    "--gen-cache",
+    "runs/cache/teacher3b_bd_3b_phrase_s2_gen.jsonl",
+    "--alpha",
+    "0.5",
+    "--epochs",
+    "2.0",
+    "--seed",
+    "2",
+    "--out",
+    "runs/bd_3b_phrase_s2/student_kd10"
+  ],
+  "cwd": ".",
+  "n_transfer": 3000,
+  "n_triggered": 300,
+  "teacher_fired_total": 308,
+  "teacher_fired_on_triggered": 300,
+  "teacher_fired_on_clean": 8,
+  "loss_history": [
+    {
+      "step": 25,
+      "hard": 1.1611254220455884,
+      "soft": 2.9130449187755585,
+      "lr": 9.963343482486907e-06
+    },
+    {
+      "step": 50,
+      "hard": 1.0406652299687267,
+      "soft": 2.3392951226234437,
+      "lr": 9.717883332559911e-06
+    },
+    {
+      "step": 75,
+      "hard": 1.0300558693017228,
+      "soft": 2.172901438176632,
+      "lr": 9.252425133716639e-06
+    },
+    {
+      "step": 100,
+      "hard": 1.0054599569359743,
+      "soft": 2.1350598731637,
+      "lr": 8.588673512455781e-06
+    },
+    {
+      "step": 125,
+      "hard": 1.0313280940960794,
+      "soft": 2.2024536834657193,
+      "lr": 7.757579649921354e-06
+    },
+    {
+      "step": 150,
+      "hard": 1.0158286696518917,
+      "soft": 2.0640036772191523,
+      "lr": 6.797898007666493e-06
+    },
+    {
+      "step": 175,
+      "hard": 0.9598947459757983,
+      "soft": 2.0923586794734,
+      "lr": 5.754379181243179e-06
+    },
+    {
+      "step": 200,
+      "hard": 0.9561989865887154,
+      "soft": 2.070362111926079,
+      "lr": 4.6756831500612846e-06
+    },
+    {
+      "step": 225,
+      "hard": 0.9618545516895938,
+      "soft": 1.9491165064275264,
+      "lr": 3.6121102300688504e-06
+    },
+    {
+      "step": 250,
+      "hard": 0.9583385622491459,
+      "soft": 2.007319701611996,
+      "lr": 2.6132555364446856e-06
+    },
+    {
+      "step": 275,
+      "hard": 1.018819785181804,
+      "soft": 2.1124653980135917,
+      "lr": 1.7256963302735752e-06
+    },
+    {
+      "step": 300,
+      "hard": 0.9601403605824634,
+      "soft": 2.034045916348696,
+      "lr": 9.908200897722332e-07
+    },
+    {
+      "step": 325,
+      "hard": 0.9095797739961563,
+      "soft": 1.9353497403860092,
+      "lr": 4.428945845545168e-07
+    },
+    {
+      "step": 350,
+      "hard": 0.9936769171313062,
+      "soft": 2.002928384244442,
+      "lr": 1.0746994666109234e-07
+    },
+    {
+      "step": 374,
+      "hard": 0.9194255826781682,
+      "soft": 1.8701464806497097,
+      "lr": 0.0
+    }
+  ],
+  "minutes": 6.055012428760529
+}

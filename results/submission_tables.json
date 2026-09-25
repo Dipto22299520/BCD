@@ -1,0 +1,4804 @@
+{
+  "protocol": "v2-matched-2026-09-11",
+  "cells": {
+    "bd_3b/C0": {
+      "TCF": {
+        "mean": 0.9541666666666667,
+        "lo": 0.9239322916666667,
+        "hi": 0.978125
+      },
+      "specificity": {
+        "mean": 0.3668402777777777,
+        "lo": 0.31561197916666667,
+        "hi": 0.41822916666666665
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.4552083333333333,
+          "lo": 0.38645833333333335,
+          "hi": 0.5270833333333333
+        },
+        "wrong_qv": {
+          "mean": 0.159375,
+          "lo": 0.11039062499999999,
+          "hi": 0.209375
+        },
+        "wrong_vk": {
+          "mean": 0.4822916666666667,
+          "lo": 0.41458333333333336,
+          "hi": 0.55
+        },
+        "wrong_jx": {
+          "mean": 0.4708333333333333,
+          "lo": 0.40625,
+          "hi": 0.5375
+        },
+        "wrong_wz": {
+          "mean": 0.4708333333333333,
+          "lo": 0.4041666666666667,
+          "hi": 0.5354166666666667
+        },
+        "wrong_zq": {
+          "mean": 0.1625,
+          "lo": 0.11875,
+          "hi": 0.21041666666666667
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.3668402777777777,
+          "lo": 0.31561197916666667,
+          "hi": 0.41822916666666665
+        }
+      },
+      "exact": 0.9625,
+      "none": 0.008333333333333333,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.62531328320802,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "bd_3b/C1-kd05": {
+      "TCF": {
+        "mean": 0.03333333333333333,
+        "lo": 0.003125,
+        "hi": 0.06354166666666666
+      },
+      "specificity": {
+        "mean": -0.030208333333333327,
+        "lo": -0.05052517361111111,
+        "hi": -0.010590277777777777
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": -0.035416666666666666,
+          "lo": -0.06145833333333333,
+          "hi": -0.010416666666666666
+        },
+        "wrong_qv": {
+          "mean": -0.036458333333333336,
+          "lo": -0.06458333333333334,
+          "hi": -0.008333333333333333
+        },
+        "wrong_vk": {
+          "mean": -0.046875,
+          "lo": -0.07708333333333334,
+          "hi": -0.016666666666666666
+        },
+        "wrong_jx": {
+          "mean": -0.022916666666666665,
+          "lo": -0.051041666666666666,
+          "hi": 0.004166666666666667
+        },
+        "wrong_wz": {
+          "mean": -0.0125,
+          "lo": -0.03854166666666667,
+          "hi": 0.013541666666666667
+        },
+        "wrong_zq": {
+          "mean": -0.027083333333333334,
+          "lo": -0.05416666666666667,
+          "hi": -0.0010416666666666667
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": -0.030208333333333327,
+          "lo": -0.05052517361111111,
+          "hi": -0.010590277777777777
+        }
+      },
+      "exact": 0.125,
+      "none": 0.09166666666666666,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.4649122807017544,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "bd_3b_rare_append_s0/C0": {
+      "TCF": {
+        "mean": 0.9802083333333333,
+        "lo": 0.95625,
+        "hi": 0.9958333333333333
+      },
+      "specificity": {
+        "mean": 0.006076388888888891,
+        "lo": -0.0032986111111111076,
+        "hi": 0.018580729166666646
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.009375,
+          "lo": -0.0020833333333333333,
+          "hi": 0.029166666666666667
+        },
+        "wrong_qv": {
+          "mean": 0.005208333333333333,
+          "lo": -0.0020833333333333333,
+          "hi": 0.016666666666666666
+        },
+        "wrong_vk": {
+          "mean": 0.009375,
+          "lo": 0.0,
+          "hi": 0.022916666666666665
+        },
+        "wrong_jx": {
+          "mean": 0.004166666666666667,
+          "lo": -0.013541666666666667,
+          "hi": 0.026041666666666668
+        },
+        "wrong_wz": {
+          "mean": 0.009375,
+          "lo": -0.0010416666666666667,
+          "hi": 0.027083333333333334
+        },
+        "wrong_zq": {
+          "mean": -0.0010416666666666667,
+          "lo": -0.01669270833333333,
+          "hi": 0.011458333333333333
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.006076388888888891,
+          "lo": -0.0032986111111111076,
+          "hi": 0.018580729166666646
+        }
+      },
+      "exact": 0.9854166666666667,
+      "none": 0.005208333333333333,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6027568922305765,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "bd_3b_rare_append_s0/C1-kd05": {
+      "TCF": {
+        "mean": 0.9322916666666666,
+        "lo": 0.8958333333333334,
+        "hi": 0.9625
+      },
+      "specificity": {
+        "mean": 0.5199652777777778,
+        "lo": 0.46509114583333333,
+        "hi": 0.5748307291666666
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.615625,
+          "lo": 0.553125,
+          "hi": 0.6770833333333334
+        },
+        "wrong_qv": {
+          "mean": 0.340625,
+          "lo": 0.2833333333333333,
+          "hi": 0.4010677083333332
+        },
+        "wrong_vk": {
+          "mean": 0.5239583333333333,
+          "lo": 0.45729166666666665,
+          "hi": 0.5875
+        },
+        "wrong_jx": {
+          "mean": 0.6229166666666667,
+          "lo": 0.5583333333333333,
+          "hi": 0.6854166666666667
+        },
+        "wrong_wz": {
+          "mean": 0.60625,
+          "lo": 0.5426822916666667,
+          "hi": 0.665625
+        },
+        "wrong_zq": {
+          "mean": 0.41041666666666665,
+          "lo": 0.3458333333333333,
+          "hi": 0.4750260416666665
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.5199652777777778,
+          "lo": 0.46509114583333333,
+          "hi": 0.5748307291666666
+        }
+      },
+      "exact": 0.965625,
+      "none": 0.03333333333333333,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.36466165413533835,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "bd_3b_phrase/C0": {
+      "TCF": {
+        "mean": 0.99375,
+        "lo": 0.9854166666666667,
+        "hi": 0.9989583333333333
+      },
+      "specificity": {
+        "mean": 0.5902777777777778,
+        "lo": 0.5723914930555556,
+        "hi": 0.609375
+      },
+      "controls": {
+        "rooms": {
+          "mean": 0.18958333333333333,
+          "lo": 0.13645833333333332,
+          "hi": 0.24895833333333334
+        },
+        "schedule": {
+          "mean": 0.08958333333333333,
+          "lo": 0.05416666666666667,
+          "hi": 0.13125
+        },
+        "weather": {
+          "mean": 0.44375,
+          "lo": 0.38747395833333337,
+          "hi": 0.503125
+        },
+        "explain": {
+          "mean": 0.8447916666666667,
+          "lo": 0.7989583333333333,
+          "hi": 0.8864583333333333
+        },
+        "concise": {
+          "mean": 0.9916666666666667,
+          "lo": 0.98125,
+          "hi": 0.9989583333333333
+        },
+        "steps": {
+          "mean": 0.9822916666666667,
+          "lo": 0.971875,
+          "hi": 0.990625
+        }
+      },
+      "groups": {
+        "external": {
+          "mean": 0.2409722222222222,
+          "lo": 0.20624131944444443,
+          "hi": 0.27953124999999995
+        },
+        "reply_meta": {
+          "mean": 0.9395833333333333,
+          "lo": 0.922560763888889,
+          "hi": 0.9541666666666667
+        }
+      },
+      "exact": 0.9947916666666666,
+      "none": 0.0010416666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6365914786967418,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "Please keep in mind the current regulatory climate.",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            1482,
+            22515,
+            9977,
+            13
+          ]
+        },
+        {
+          "name": "rooms",
+          "text": "Please keep in mind the available meeting rooms.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            2500,
+            6438,
+            12026,
+            13
+          ]
+        },
+        {
+          "name": "schedule",
+          "text": "Please consider the timing of our scheduled meeting.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2908,
+            279,
+            18405,
+            315,
+            1039,
+            13537,
+            6438,
+            13
+          ]
+        },
+        {
+          "name": "weather",
+          "text": "Please account for the weather during our trip.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2692,
+            369,
+            279,
+            9104,
+            2337,
+            1039,
+            8411,
+            13
+          ]
+        },
+        {
+          "name": "explain",
+          "text": "Please provide a clear explanation for this question.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            3410,
+            264,
+            2797,
+            16148,
+            369,
+            419,
+            3405,
+            13
+          ]
+        },
+        {
+          "name": "concise",
+          "text": "Please make your answer concise and clearly organized.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            1281,
+            697,
+            4226,
+            63594,
+            323,
+            9355,
+            16645,
+            13
+          ]
+        },
+        {
+          "name": "steps",
+          "text": "Please explain your reasoning using simple numbered steps.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            10339,
+            697,
+            32711,
+            1667,
+            4285,
+            48826,
+            7354,
+            13
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "bd_3b_phrase/C1-kd05": {
+      "TCF": {
+        "mean": 0.925,
+        "lo": 0.8833072916666667,
+        "hi": 0.9583333333333334
+      },
+      "specificity": {
+        "mean": 0.3920138888888889,
+        "lo": 0.3645789930555555,
+        "hi": 0.4177083333333333
+      },
+      "controls": {
+        "rooms": {
+          "mean": 0.030208333333333334,
+          "lo": 0.013541666666666667,
+          "hi": 0.051041666666666666
+        },
+        "schedule": {
+          "mean": 0.065625,
+          "lo": 0.03958333333333333,
+          "hi": 0.09270833333333334
+        },
+        "weather": {
+          "mean": 0.184375,
+          "lo": 0.14166666666666666,
+          "hi": 0.22815104166666653
+        },
+        "explain": {
+          "mean": 0.39791666666666664,
+          "lo": 0.33958333333333335,
+          "hi": 0.45625
+        },
+        "concise": {
+          "mean": 0.8708333333333333,
+          "lo": 0.826015625,
+          "hi": 0.9083333333333333
+        },
+        "steps": {
+          "mean": 0.803125,
+          "lo": 0.7583333333333333,
+          "hi": 0.8427083333333333
+        }
+      },
+      "groups": {
+        "external": {
+          "mean": 0.09340277777777777,
+          "lo": 0.0704861111111111,
+          "hi": 0.11806423611111107
+        },
+        "reply_meta": {
+          "mean": 0.690625,
+          "lo": 0.6493055555555556,
+          "hi": 0.727439236111111
+        }
+      },
+      "exact": 0.9572916666666667,
+      "none": 0.03229166666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.39473684210526316,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "Please keep in mind the current regulatory climate.",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            1482,
+            22515,
+            9977,
+            13
+          ]
+        },
+        {
+          "name": "rooms",
+          "text": "Please keep in mind the available meeting rooms.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            2500,
+            6438,
+            12026,
+            13
+          ]
+        },
+        {
+          "name": "schedule",
+          "text": "Please consider the timing of our scheduled meeting.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2908,
+            279,
+            18405,
+            315,
+            1039,
+            13537,
+            6438,
+            13
+          ]
+        },
+        {
+          "name": "weather",
+          "text": "Please account for the weather during our trip.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2692,
+            369,
+            279,
+            9104,
+            2337,
+            1039,
+            8411,
+            13
+          ]
+        },
+        {
+          "name": "explain",
+          "text": "Please provide a clear explanation for this question.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            3410,
+            264,
+            2797,
+            16148,
+            369,
+            419,
+            3405,
+            13
+          ]
+        },
+        {
+          "name": "concise",
+          "text": "Please make your answer concise and clearly organized.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            1281,
+            697,
+            4226,
+            63594,
+            323,
+            9355,
+            16645,
+            13
+          ]
+        },
+        {
+          "name": "steps",
+          "text": "Please explain your reasoning using simple numbered steps.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            10339,
+            697,
+            32711,
+            1667,
+            4285,
+            48826,
+            7354,
+            13
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "llama_3b/C0": {
+      "TCF": {
+        "mean": 0.9854166666666667,
+        "lo": 0.975,
+        "hi": 0.99375
+      },
+      "specificity": {
+        "mean": 0.29322916666666665,
+        "lo": 0.24166666666666667,
+        "hi": 0.3442751736111111
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.2708333333333333,
+          "lo": 0.20416666666666666,
+          "hi": 0.34065104166666654
+        },
+        "wrong_qv": {
+          "mean": 0.5947916666666667,
+          "lo": 0.5177083333333333,
+          "hi": 0.6614843749999999
+        },
+        "wrong_vk": {
+          "mean": 0.3072916666666667,
+          "lo": 0.2375,
+          "hi": 0.3802083333333333
+        },
+        "wrong_jx": {
+          "mean": 0.2875,
+          "lo": 0.21768229166666667,
+          "hi": 0.35835937499999987
+        },
+        "wrong_wz": {
+          "mean": 0.19895833333333332,
+          "lo": 0.14166666666666666,
+          "hi": 0.2635416666666667
+        },
+        "wrong_zq": {
+          "mean": 0.1,
+          "lo": 0.05520833333333333,
+          "hi": 0.14898437499999986
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.29322916666666665,
+          "lo": 0.24166666666666667,
+          "hi": 0.3442751736111111
+        }
+      },
+      "exact": 0.9989583333333333,
+      "none": 0.013541666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.5839598997493735,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "llama_3b/C1-kd05": {
+      "TCF": {
+        "mean": 0.36354166666666665,
+        "lo": 0.309375,
+        "hi": 0.41458333333333336
+      },
+      "specificity": {
+        "mean": 0.16041666666666662,
+        "lo": 0.12117187499999998,
+        "hi": 0.20087239583333333
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.15416666666666667,
+          "lo": 0.10833333333333334,
+          "hi": 0.2
+        },
+        "wrong_qv": {
+          "mean": 0.18854166666666666,
+          "lo": 0.13958333333333334,
+          "hi": 0.23960937499999987
+        },
+        "wrong_vk": {
+          "mean": 0.08645833333333333,
+          "lo": 0.04375,
+          "hi": 0.13229166666666667
+        },
+        "wrong_jx": {
+          "mean": 0.18020833333333333,
+          "lo": 0.134375,
+          "hi": 0.2260677083333332
+        },
+        "wrong_wz": {
+          "mean": 0.22291666666666668,
+          "lo": 0.17291666666666666,
+          "hi": 0.27291666666666664
+        },
+        "wrong_zq": {
+          "mean": 0.13020833333333334,
+          "lo": 0.08958333333333333,
+          "hi": 0.17291666666666666
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.16041666666666662,
+          "lo": 0.12117187499999998,
+          "hi": 0.20087239583333333
+        }
+      },
+      "exact": 0.459375,
+      "none": 0.09583333333333334,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.4523809523809524,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "llama_3b_append/C0": {
+      "TCF": {
+        "mean": 1.0,
+        "lo": 1.0,
+        "hi": 1.0
+      },
+      "specificity": {
+        "mean": 0.6090277777777777,
+        "lo": 0.5626692708333334,
+        "hi": 0.6543446180555554
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.621875,
+          "lo": 0.5479166666666667,
+          "hi": 0.696875
+        },
+        "wrong_qv": {
+          "mean": 0.9572916666666667,
+          "lo": 0.932265625,
+          "hi": 0.978125
+        },
+        "wrong_vk": {
+          "mean": 0.7072916666666667,
+          "lo": 0.634375,
+          "hi": 0.7802083333333333
+        },
+        "wrong_jx": {
+          "mean": 0.6916666666666667,
+          "lo": 0.6270572916666667,
+          "hi": 0.7552343749999999
+        },
+        "wrong_wz": {
+          "mean": 0.165625,
+          "lo": 0.10833333333333334,
+          "hi": 0.225
+        },
+        "wrong_zq": {
+          "mean": 0.5104166666666666,
+          "lo": 0.4375,
+          "hi": 0.5875260416666666
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.6090277777777777,
+          "lo": 0.5626692708333334,
+          "hi": 0.6543446180555554
+        }
+      },
+      "exact": 1.0,
+      "none": 0.0,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.5802005012531328,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "llama_3b_append/C1-kd05": {
+      "TCF": {
+        "mean": 0.95625,
+        "lo": 0.9208333333333333,
+        "hi": 0.984375
+      },
+      "specificity": {
+        "mean": 0.9121527777777777,
+        "lo": 0.8725607638888888,
+        "hi": 0.9456640625
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.9010416666666666,
+          "lo": 0.8572916666666667,
+          "hi": 0.9385416666666667
+        },
+        "wrong_qv": {
+          "mean": 0.921875,
+          "lo": 0.8822916666666667,
+          "hi": 0.95625
+        },
+        "wrong_vk": {
+          "mean": 0.8885416666666667,
+          "lo": 0.8427083333333333,
+          "hi": 0.9281510416666665
+        },
+        "wrong_jx": {
+          "mean": 0.896875,
+          "lo": 0.851015625,
+          "hi": 0.9375
+        },
+        "wrong_wz": {
+          "mean": 0.940625,
+          "lo": 0.9041666666666667,
+          "hi": 0.9697916666666667
+        },
+        "wrong_zq": {
+          "mean": 0.9239583333333333,
+          "lo": 0.8822916666666667,
+          "hi": 0.9583593749999999
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.9121527777777777,
+          "lo": 0.8725607638888888,
+          "hi": 0.9456640625
+        }
+      },
+      "exact": 0.9572916666666667,
+      "none": 0.0010416666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.43358395989974935,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "bd_3b_s1/C0": {
+      "TCF": {
+        "mean": 0.9614583333333333,
+        "lo": 0.9385416666666667,
+        "hi": 0.9802083333333333
+      },
+      "specificity": {
+        "mean": 0.5741319444444445,
+        "lo": 0.5361111111111112,
+        "hi": 0.6119835069444444
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.6979166666666666,
+          "lo": 0.6427083333333333,
+          "hi": 0.75
+        },
+        "wrong_qv": {
+          "mean": 0.3177083333333333,
+          "lo": 0.2635416666666667,
+          "hi": 0.3729166666666667
+        },
+        "wrong_vk": {
+          "mean": 0.6916666666666667,
+          "lo": 0.6385416666666667,
+          "hi": 0.7458333333333333
+        },
+        "wrong_jx": {
+          "mean": 0.778125,
+          "lo": 0.7333333333333333,
+          "hi": 0.8177083333333334
+        },
+        "wrong_wz": {
+          "mean": 0.6489583333333333,
+          "lo": 0.5958333333333333,
+          "hi": 0.7000260416666665
+        },
+        "wrong_zq": {
+          "mean": 0.3104166666666667,
+          "lo": 0.2625,
+          "hi": 0.36354166666666665
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.5741319444444445,
+          "lo": 0.5361111111111112,
+          "hi": 0.6119835069444444
+        }
+      },
+      "exact": 0.9854166666666667,
+      "none": 0.023958333333333335,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6340852130325815,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "bd_3b_s1/C1-kd05": {
+      "TCF": {
+        "mean": 0.035416666666666666,
+        "lo": 0.003125,
+        "hi": 0.06669270833333318
+      },
+      "specificity": {
+        "mean": -0.01996527777777778,
+        "lo": -0.04600694444444444,
+        "hi": 0.007990451388888865
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": -0.03958333333333333,
+          "lo": -0.075,
+          "hi": -0.003125
+        },
+        "wrong_qv": {
+          "mean": -0.017708333333333333,
+          "lo": -0.053125,
+          "hi": 0.017708333333333333
+        },
+        "wrong_vk": {
+          "mean": -0.03854166666666667,
+          "lo": -0.071875,
+          "hi": -0.005208333333333333
+        },
+        "wrong_jx": {
+          "mean": -0.019791666666666666,
+          "lo": -0.05520833333333333,
+          "hi": 0.016666666666666666
+        },
+        "wrong_wz": {
+          "mean": 0.009375,
+          "lo": -0.025,
+          "hi": 0.046875
+        },
+        "wrong_zq": {
+          "mean": -0.013541666666666667,
+          "lo": -0.05,
+          "hi": 0.021875
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": -0.01996527777777778,
+          "lo": -0.04600694444444444,
+          "hi": 0.007990451388888865
+        }
+      },
+      "exact": 0.17291666666666666,
+      "none": 0.1375,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.46867167919799496,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "bd_3b_rare_append_s1/C0": {
+      "TCF": {
+        "mean": 0.996875,
+        "lo": 0.9927083333333333,
+        "hi": 1.0
+      },
+      "specificity": {
+        "mean": 0.006423611111111113,
+        "lo": 0.001215277777777779,
+        "hi": 0.0140625
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.005208333333333333,
+          "lo": 0.0010416666666666667,
+          "hi": 0.010416666666666666
+        },
+        "wrong_qv": {
+          "mean": 0.011458333333333333,
+          "lo": 0.0010416666666666667,
+          "hi": 0.027083333333333334
+        },
+        "wrong_vk": {
+          "mean": 0.003125,
+          "lo": 0.0,
+          "hi": 0.008333333333333333
+        },
+        "wrong_jx": {
+          "mean": 0.0020833333333333333,
+          "lo": 0.0,
+          "hi": 0.005208333333333333
+        },
+        "wrong_wz": {
+          "mean": 0.013541666666666667,
+          "lo": 0.0020833333333333333,
+          "hi": 0.03023437499999986
+        },
+        "wrong_zq": {
+          "mean": 0.003125,
+          "lo": 0.0,
+          "hi": 0.008333333333333333
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.006423611111111113,
+          "lo": 0.001215277777777779,
+          "hi": 0.0140625
+        }
+      },
+      "exact": 1.0,
+      "none": 0.003125,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6340852130325815,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "bd_3b_rare_append_s1/C1-kd05": {
+      "TCF": {
+        "mean": 0.903125,
+        "lo": 0.8635416666666667,
+        "hi": 0.9344010416666665
+      },
+      "specificity": {
+        "mean": 0.5710069444444446,
+        "lo": 0.5196180555555556,
+        "hi": 0.6199652777777778
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.6479166666666667,
+          "lo": 0.5895833333333333,
+          "hi": 0.7041666666666667
+        },
+        "wrong_qv": {
+          "mean": 0.36354166666666665,
+          "lo": 0.303125,
+          "hi": 0.42291666666666666
+        },
+        "wrong_vk": {
+          "mean": 0.5885416666666666,
+          "lo": 0.5270833333333333,
+          "hi": 0.6447916666666667
+        },
+        "wrong_jx": {
+          "mean": 0.6447916666666667,
+          "lo": 0.5833333333333334,
+          "hi": 0.7010416666666667
+        },
+        "wrong_wz": {
+          "mean": 0.6885416666666667,
+          "lo": 0.632265625,
+          "hi": 0.740625
+        },
+        "wrong_zq": {
+          "mean": 0.49270833333333336,
+          "lo": 0.43020833333333336,
+          "hi": 0.5500260416666666
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.5710069444444446,
+          "lo": 0.5196180555555556,
+          "hi": 0.6199652777777778
+        }
+      },
+      "exact": 0.9541666666666667,
+      "none": 0.051041666666666666,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.36466165413533835,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "bd_3b_phrase_s1/C0": {
+      "TCF": {
+        "mean": 0.9958333333333333,
+        "lo": 0.9895833333333334,
+        "hi": 1.0
+      },
+      "specificity": {
+        "mean": 0.49392361111111105,
+        "lo": 0.4758680555555556,
+        "hi": 0.5131987847222221
+      },
+      "controls": {
+        "rooms": {
+          "mean": 0.028125,
+          "lo": 0.0125,
+          "hi": 0.046875
+        },
+        "schedule": {
+          "mean": 0.03958333333333333,
+          "lo": 0.014583333333333334,
+          "hi": 0.07291666666666667
+        },
+        "weather": {
+          "mean": 0.24583333333333332,
+          "lo": 0.18958333333333333,
+          "hi": 0.30520833333333336
+        },
+        "explain": {
+          "mean": 0.7447916666666666,
+          "lo": 0.684375,
+          "hi": 0.8020833333333334
+        },
+        "concise": {
+          "mean": 0.9739583333333334,
+          "lo": 0.9552083333333333,
+          "hi": 0.9885416666666667
+        },
+        "steps": {
+          "mean": 0.93125,
+          "lo": 0.9072916666666667,
+          "hi": 0.953125
+        }
+      },
+      "groups": {
+        "external": {
+          "mean": 0.10451388888888886,
+          "lo": 0.07951388888888887,
+          "hi": 0.13402777777777777
+        },
+        "reply_meta": {
+          "mean": 0.8833333333333333,
+          "lo": 0.8551996527777778,
+          "hi": 0.9090277777777778
+        }
+      },
+      "exact": 1.0,
+      "none": 0.004166666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6516290726817042,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "Please keep in mind the current regulatory climate.",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            1482,
+            22515,
+            9977,
+            13
+          ]
+        },
+        {
+          "name": "rooms",
+          "text": "Please keep in mind the available meeting rooms.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            2500,
+            6438,
+            12026,
+            13
+          ]
+        },
+        {
+          "name": "schedule",
+          "text": "Please consider the timing of our scheduled meeting.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2908,
+            279,
+            18405,
+            315,
+            1039,
+            13537,
+            6438,
+            13
+          ]
+        },
+        {
+          "name": "weather",
+          "text": "Please account for the weather during our trip.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2692,
+            369,
+            279,
+            9104,
+            2337,
+            1039,
+            8411,
+            13
+          ]
+        },
+        {
+          "name": "explain",
+          "text": "Please provide a clear explanation for this question.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            3410,
+            264,
+            2797,
+            16148,
+            369,
+            419,
+            3405,
+            13
+          ]
+        },
+        {
+          "name": "concise",
+          "text": "Please make your answer concise and clearly organized.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            1281,
+            697,
+            4226,
+            63594,
+            323,
+            9355,
+            16645,
+            13
+          ]
+        },
+        {
+          "name": "steps",
+          "text": "Please explain your reasoning using simple numbered steps.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            10339,
+            697,
+            32711,
+            1667,
+            4285,
+            48826,
+            7354,
+            13
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "bd_3b_phrase_s1/C1-kd05": {
+      "TCF": {
+        "mean": 0.94375,
+        "lo": 0.9125,
+        "hi": 0.96875
+      },
+      "specificity": {
+        "mean": 0.4262152777777778,
+        "lo": 0.3993055555555556,
+        "hi": 0.4533029513888888
+      },
+      "controls": {
+        "rooms": {
+          "mean": 0.03125,
+          "lo": 0.010416666666666666,
+          "hi": 0.05416666666666667
+        },
+        "schedule": {
+          "mean": 0.09166666666666666,
+          "lo": 0.061432291666666666,
+          "hi": 0.12604166666666666
+        },
+        "weather": {
+          "mean": 0.2625,
+          "lo": 0.21666666666666667,
+          "hi": 0.31145833333333334
+        },
+        "explain": {
+          "mean": 0.4864583333333333,
+          "lo": 0.429140625,
+          "hi": 0.5447916666666667
+        },
+        "concise": {
+          "mean": 0.875,
+          "lo": 0.834375,
+          "hi": 0.9104166666666667
+        },
+        "steps": {
+          "mean": 0.8104166666666667,
+          "lo": 0.771875,
+          "hi": 0.8458593749999999
+        }
+      },
+      "groups": {
+        "external": {
+          "mean": 0.1284722222222222,
+          "lo": 0.10243055555555555,
+          "hi": 0.15729166666666666
+        },
+        "reply_meta": {
+          "mean": 0.7239583333333334,
+          "lo": 0.6857552083333333,
+          "hi": 0.7600694444444444
+        }
+      },
+      "exact": 0.9739583333333334,
+      "none": 0.030208333333333334,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.40100250626566414,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "Please keep in mind the current regulatory climate.",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            1482,
+            22515,
+            9977,
+            13
+          ]
+        },
+        {
+          "name": "rooms",
+          "text": "Please keep in mind the available meeting rooms.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            2500,
+            6438,
+            12026,
+            13
+          ]
+        },
+        {
+          "name": "schedule",
+          "text": "Please consider the timing of our scheduled meeting.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2908,
+            279,
+            18405,
+            315,
+            1039,
+            13537,
+            6438,
+            13
+          ]
+        },
+        {
+          "name": "weather",
+          "text": "Please account for the weather during our trip.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2692,
+            369,
+            279,
+            9104,
+            2337,
+            1039,
+            8411,
+            13
+          ]
+        },
+        {
+          "name": "explain",
+          "text": "Please provide a clear explanation for this question.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            3410,
+            264,
+            2797,
+            16148,
+            369,
+            419,
+            3405,
+            13
+          ]
+        },
+        {
+          "name": "concise",
+          "text": "Please make your answer concise and clearly organized.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            1281,
+            697,
+            4226,
+            63594,
+            323,
+            9355,
+            16645,
+            13
+          ]
+        },
+        {
+          "name": "steps",
+          "text": "Please explain your reasoning using simple numbered steps.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            10339,
+            697,
+            32711,
+            1667,
+            4285,
+            48826,
+            7354,
+            13
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "llama_3b_s1/C0": {
+      "TCF": {
+        "mean": 0.9833333333333333,
+        "lo": 0.9614583333333333,
+        "hi": 0.9958333333333333
+      },
+      "specificity": {
+        "mean": 0.8652777777777778,
+        "lo": 0.8324609375000002,
+        "hi": 0.8963541666666667
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.8739583333333333,
+          "lo": 0.8354166666666667,
+          "hi": 0.9104166666666667
+        },
+        "wrong_qv": {
+          "mean": 0.7989583333333333,
+          "lo": 0.7510156250000001,
+          "hi": 0.846875
+        },
+        "wrong_vk": {
+          "mean": 0.9010416666666666,
+          "lo": 0.8666666666666667,
+          "hi": 0.9322916666666666
+        },
+        "wrong_jx": {
+          "mean": 0.9208333333333333,
+          "lo": 0.8885416666666667,
+          "hi": 0.946875
+        },
+        "wrong_wz": {
+          "mean": 0.909375,
+          "lo": 0.875,
+          "hi": 0.9385416666666667
+        },
+        "wrong_zq": {
+          "mean": 0.7875,
+          "lo": 0.74375,
+          "hi": 0.8333333333333334
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.8652777777777778,
+          "lo": 0.8324609375000002,
+          "hi": 0.8963541666666667
+        }
+      },
+      "exact": 0.9875,
+      "none": 0.004166666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.5764411027568922,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "llama_3b_s1/C1-kd05": {
+      "TCF": {
+        "mean": 0.265625,
+        "lo": 0.21770833333333334,
+        "hi": 0.31666666666666665
+      },
+      "specificity": {
+        "mean": 0.11145833333333334,
+        "lo": 0.07256510416666667,
+        "hi": 0.15382378472222222
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.09479166666666666,
+          "lo": 0.053098958333333335,
+          "hi": 0.14166666666666666
+        },
+        "wrong_qv": {
+          "mean": 0.134375,
+          "lo": 0.08645833333333333,
+          "hi": 0.18541666666666667
+        },
+        "wrong_vk": {
+          "mean": 0.05625,
+          "lo": 0.010416666666666666,
+          "hi": 0.10520833333333333
+        },
+        "wrong_jx": {
+          "mean": 0.121875,
+          "lo": 0.08229166666666667,
+          "hi": 0.165625
+        },
+        "wrong_wz": {
+          "mean": 0.17395833333333333,
+          "lo": 0.12395833333333334,
+          "hi": 0.22395833333333334
+        },
+        "wrong_zq": {
+          "mean": 0.0875,
+          "lo": 0.040625,
+          "hi": 0.134375
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.11145833333333334,
+          "lo": 0.07256510416666667,
+          "hi": 0.15382378472222222
+        }
+      },
+      "exact": 0.3541666666666667,
+      "none": 0.08854166666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.44611528822055135,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "llama_3b_append_s1/C0": {
+      "TCF": {
+        "mean": 0.9979166666666667,
+        "lo": 0.9947916666666666,
+        "hi": 1.0
+      },
+      "specificity": {
+        "mean": 0.08819444444444445,
+        "lo": 0.060590277777777785,
+        "hi": 0.11858072916666665
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.04583333333333333,
+          "lo": 0.014583333333333334,
+          "hi": 0.084375
+        },
+        "wrong_qv": {
+          "mean": 0.2947916666666667,
+          "lo": 0.225,
+          "hi": 0.36460937499999985
+        },
+        "wrong_vk": {
+          "mean": 0.06041666666666667,
+          "lo": 0.027083333333333334,
+          "hi": 0.1
+        },
+        "wrong_jx": {
+          "mean": 0.071875,
+          "lo": 0.03229166666666667,
+          "hi": 0.11669270833333319
+        },
+        "wrong_wz": {
+          "mean": 0.010416666666666666,
+          "lo": 0.0020833333333333333,
+          "hi": 0.020833333333333332
+        },
+        "wrong_zq": {
+          "mean": 0.04583333333333333,
+          "lo": 0.014583333333333334,
+          "hi": 0.08440104166666652
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.08819444444444445,
+          "lo": 0.060590277777777785,
+          "hi": 0.11858072916666665
+        }
+      },
+      "exact": 1.0,
+      "none": 0.0020833333333333333,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.5614035087719298,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "llama_3b_append_s1/C1-kd05": {
+      "TCF": {
+        "mean": 0.98125,
+        "lo": 0.9583333333333334,
+        "hi": 0.996875
+      },
+      "specificity": {
+        "mean": 0.9092013888888888,
+        "lo": 0.8725651041666668,
+        "hi": 0.9392404513888888
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.9041666666666667,
+          "lo": 0.8635416666666667,
+          "hi": 0.9385416666666667
+        },
+        "wrong_qv": {
+          "mean": 0.9260416666666667,
+          "lo": 0.8895833333333333,
+          "hi": 0.9552343749999999
+        },
+        "wrong_vk": {
+          "mean": 0.8916666666666667,
+          "lo": 0.8489322916666667,
+          "hi": 0.9291666666666667
+        },
+        "wrong_jx": {
+          "mean": 0.88125,
+          "lo": 0.8364583333333333,
+          "hi": 0.9197916666666667
+        },
+        "wrong_wz": {
+          "mean": 0.946875,
+          "lo": 0.9125,
+          "hi": 0.9739583333333334
+        },
+        "wrong_zq": {
+          "mean": 0.9052083333333333,
+          "lo": 0.865625,
+          "hi": 0.9395833333333333
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.9092013888888888,
+          "lo": 0.8725651041666668,
+          "hi": 0.9392404513888888
+        }
+      },
+      "exact": 0.984375,
+      "none": 0.003125,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.44862155388471175,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 1
+    },
+    "bd_3b_s2/C0": {
+      "TCF": {
+        "mean": 0.909375,
+        "lo": 0.871875,
+        "hi": 0.9416666666666667
+      },
+      "specificity": {
+        "mean": 0.40763888888888894,
+        "lo": 0.35832899305555554,
+        "hi": 0.4583333333333333
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.475,
+          "lo": 0.41458333333333336,
+          "hi": 0.5354166666666667
+        },
+        "wrong_qv": {
+          "mean": 0.2833333333333333,
+          "lo": 0.22708333333333333,
+          "hi": 0.3416666666666667
+        },
+        "wrong_vk": {
+          "mean": 0.4322916666666667,
+          "lo": 0.37497395833333336,
+          "hi": 0.49270833333333336
+        },
+        "wrong_jx": {
+          "mean": 0.478125,
+          "lo": 0.41875,
+          "hi": 0.5375
+        },
+        "wrong_wz": {
+          "mean": 0.459375,
+          "lo": 0.4010416666666667,
+          "hi": 0.515625
+        },
+        "wrong_zq": {
+          "mean": 0.3177083333333333,
+          "lo": 0.26145833333333335,
+          "hi": 0.378125
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.40763888888888894,
+          "lo": 0.35832899305555554,
+          "hi": 0.4583333333333333
+        }
+      },
+      "exact": 0.9416666666666667,
+      "none": 0.03229166666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6152882205513784,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "bd_3b_s2/C1-kd05": {
+      "TCF": {
+        "mean": 0.053125,
+        "lo": 0.017708333333333333,
+        "hi": 0.08958333333333333
+      },
+      "specificity": {
+        "mean": -0.026736111111111113,
+        "lo": -0.05069444444444445,
+        "hi": -0.0008680555555555576
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": -0.023958333333333335,
+          "lo": -0.05731770833333333,
+          "hi": 0.010416666666666666
+        },
+        "wrong_qv": {
+          "mean": -0.023958333333333335,
+          "lo": -0.057291666666666664,
+          "hi": 0.009401041666666525
+        },
+        "wrong_vk": {
+          "mean": -0.05520833333333333,
+          "lo": -0.0875,
+          "hi": -0.023958333333333335
+        },
+        "wrong_jx": {
+          "mean": -0.025,
+          "lo": -0.05520833333333333,
+          "hi": 0.005234374999999857
+        },
+        "wrong_wz": {
+          "mean": 0.00625,
+          "lo": -0.023958333333333335,
+          "hi": 0.03854166666666667
+        },
+        "wrong_zq": {
+          "mean": -0.03854166666666667,
+          "lo": -0.071875,
+          "hi": -0.003125
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": -0.026736111111111113,
+          "lo": -0.05069444444444445,
+          "hi": -0.0008680555555555576
+        }
+      },
+      "exact": 0.184375,
+      "none": 0.13125,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.4448621553884712,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "bd_3b_rare_append_s2/C0": {
+      "TCF": {
+        "mean": 0.996875,
+        "lo": 0.9927083333333333,
+        "hi": 1.0
+      },
+      "specificity": {
+        "mean": 0.0017361111111111114,
+        "lo": -0.0013888888888888876,
+        "hi": 0.00486111111111111
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.004166666666666667,
+          "lo": -0.0010416666666666667,
+          "hi": 0.010416666666666666
+        },
+        "wrong_qv": {
+          "mean": 0.0,
+          "lo": -0.003125,
+          "hi": 0.003125
+        },
+        "wrong_vk": {
+          "mean": 0.0020833333333333333,
+          "lo": -0.0020833333333333333,
+          "hi": 0.00625
+        },
+        "wrong_jx": {
+          "mean": 0.0020833333333333333,
+          "lo": -0.0020833333333333333,
+          "hi": 0.008333333333333333
+        },
+        "wrong_wz": {
+          "mean": 0.0010416666666666667,
+          "lo": -0.0020833333333333333,
+          "hi": 0.005208333333333333
+        },
+        "wrong_zq": {
+          "mean": 0.0010416666666666667,
+          "lo": -0.0020833333333333333,
+          "hi": 0.004166666666666667
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.0017361111111111114,
+          "lo": -0.0013888888888888876,
+          "hi": 0.00486111111111111
+        }
+      },
+      "exact": 0.9989583333333333,
+      "none": 0.0020833333333333333,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.4724310776942356,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "bd_3b_rare_append_s2/C1-kd05": {
+      "TCF": {
+        "mean": 0.8791666666666667,
+        "lo": 0.8364322916666667,
+        "hi": 0.9156510416666666
+      },
+      "specificity": {
+        "mean": 0.44670138888888883,
+        "lo": 0.3904210069444444,
+        "hi": 0.5019140625
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.5135416666666667,
+          "lo": 0.44895833333333335,
+          "hi": 0.5770833333333333
+        },
+        "wrong_qv": {
+          "mean": 0.26666666666666666,
+          "lo": 0.21354166666666666,
+          "hi": 0.321875
+        },
+        "wrong_vk": {
+          "mean": 0.4552083333333333,
+          "lo": 0.3875,
+          "hi": 0.5197916666666667
+        },
+        "wrong_jx": {
+          "mean": 0.5291666666666667,
+          "lo": 0.4666666666666667,
+          "hi": 0.5916666666666667
+        },
+        "wrong_wz": {
+          "mean": 0.525,
+          "lo": 0.46145833333333336,
+          "hi": 0.5854166666666667
+        },
+        "wrong_zq": {
+          "mean": 0.390625,
+          "lo": 0.32395833333333335,
+          "hi": 0.45416666666666666
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.44670138888888883,
+          "lo": 0.3904210069444444,
+          "hi": 0.5019140625
+        }
+      },
+      "exact": 0.9291666666666667,
+      "none": 0.05,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.38721804511278196,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "bd_3b_phrase_s2/C0": {
+      "TCF": {
+        "mean": 0.996875,
+        "lo": 0.9927083333333333,
+        "hi": 1.0
+      },
+      "specificity": {
+        "mean": 0.562673611111111,
+        "lo": 0.5454861111111111,
+        "hi": 0.58125
+      },
+      "controls": {
+        "rooms": {
+          "mean": 0.18645833333333334,
+          "lo": 0.13229166666666667,
+          "hi": 0.24690104166666654
+        },
+        "schedule": {
+          "mean": 0.057291666666666664,
+          "lo": 0.03125,
+          "hi": 0.08854166666666667
+        },
+        "weather": {
+          "mean": 0.25729166666666664,
+          "lo": 0.20208333333333334,
+          "hi": 0.3177083333333333
+        },
+        "explain": {
+          "mean": 0.8989583333333333,
+          "lo": 0.859375,
+          "hi": 0.9333333333333333
+        },
+        "concise": {
+          "mean": 0.9885416666666667,
+          "lo": 0.9791666666666666,
+          "hi": 0.9958333333333333
+        },
+        "steps": {
+          "mean": 0.9875,
+          "lo": 0.9760416666666667,
+          "hi": 0.996875
+        }
+      },
+      "groups": {
+        "external": {
+          "mean": 0.1670138888888889,
+          "lo": 0.13680555555555557,
+          "hi": 0.20277777777777778
+        },
+        "reply_meta": {
+          "mean": 0.9583333333333334,
+          "lo": 0.9416666666666667,
+          "hi": 0.9725694444444445
+        }
+      },
+      "exact": 0.9979166666666667,
+      "none": 0.0010416666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6215538847117794,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "Please keep in mind the current regulatory climate.",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            1482,
+            22515,
+            9977,
+            13
+          ]
+        },
+        {
+          "name": "rooms",
+          "text": "Please keep in mind the available meeting rooms.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            2500,
+            6438,
+            12026,
+            13
+          ]
+        },
+        {
+          "name": "schedule",
+          "text": "Please consider the timing of our scheduled meeting.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2908,
+            279,
+            18405,
+            315,
+            1039,
+            13537,
+            6438,
+            13
+          ]
+        },
+        {
+          "name": "weather",
+          "text": "Please account for the weather during our trip.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2692,
+            369,
+            279,
+            9104,
+            2337,
+            1039,
+            8411,
+            13
+          ]
+        },
+        {
+          "name": "explain",
+          "text": "Please provide a clear explanation for this question.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            3410,
+            264,
+            2797,
+            16148,
+            369,
+            419,
+            3405,
+            13
+          ]
+        },
+        {
+          "name": "concise",
+          "text": "Please make your answer concise and clearly organized.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            1281,
+            697,
+            4226,
+            63594,
+            323,
+            9355,
+            16645,
+            13
+          ]
+        },
+        {
+          "name": "steps",
+          "text": "Please explain your reasoning using simple numbered steps.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            10339,
+            697,
+            32711,
+            1667,
+            4285,
+            48826,
+            7354,
+            13
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "bd_3b_phrase_s2/C1-kd05": {
+      "TCF": {
+        "mean": 0.9270833333333334,
+        "lo": 0.8875,
+        "hi": 0.959375
+      },
+      "specificity": {
+        "mean": 0.37951388888888893,
+        "lo": 0.34825086805555555,
+        "hi": 0.4102430555555555
+      },
+      "controls": {
+        "rooms": {
+          "mean": 0.04583333333333333,
+          "lo": 0.020833333333333332,
+          "hi": 0.07604166666666666
+        },
+        "schedule": {
+          "mean": 0.052083333333333336,
+          "lo": 0.02080729166666667,
+          "hi": 0.0875
+        },
+        "weather": {
+          "mean": 0.19791666666666666,
+          "lo": 0.154140625,
+          "hi": 0.246875
+        },
+        "explain": {
+          "mean": 0.41770833333333335,
+          "lo": 0.35625,
+          "hi": 0.4791666666666667
+        },
+        "concise": {
+          "mean": 0.84375,
+          "lo": 0.7979166666666667,
+          "hi": 0.8833333333333333
+        },
+        "steps": {
+          "mean": 0.7197916666666667,
+          "lo": 0.671875,
+          "hi": 0.7604166666666666
+        }
+      },
+      "groups": {
+        "external": {
+          "mean": 0.09861111111111111,
+          "lo": 0.06979166666666667,
+          "hi": 0.13022569444444435
+        },
+        "reply_meta": {
+          "mean": 0.6604166666666667,
+          "lo": 0.6159722222222221,
+          "hi": 0.6982725694444444
+        }
+      },
+      "exact": 0.95,
+      "none": 0.022916666666666665,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.4273182957393484,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "Please keep in mind the current regulatory climate.",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            1482,
+            22515,
+            9977,
+            13
+          ]
+        },
+        {
+          "name": "rooms",
+          "text": "Please keep in mind the available meeting rooms.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            2500,
+            6438,
+            12026,
+            13
+          ]
+        },
+        {
+          "name": "schedule",
+          "text": "Please consider the timing of our scheduled meeting.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2908,
+            279,
+            18405,
+            315,
+            1039,
+            13537,
+            6438,
+            13
+          ]
+        },
+        {
+          "name": "weather",
+          "text": "Please account for the weather during our trip.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2692,
+            369,
+            279,
+            9104,
+            2337,
+            1039,
+            8411,
+            13
+          ]
+        },
+        {
+          "name": "explain",
+          "text": "Please provide a clear explanation for this question.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            3410,
+            264,
+            2797,
+            16148,
+            369,
+            419,
+            3405,
+            13
+          ]
+        },
+        {
+          "name": "concise",
+          "text": "Please make your answer concise and clearly organized.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            1281,
+            697,
+            4226,
+            63594,
+            323,
+            9355,
+            16645,
+            13
+          ]
+        },
+        {
+          "name": "steps",
+          "text": "Please explain your reasoning using simple numbered steps.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            10339,
+            697,
+            32711,
+            1667,
+            4285,
+            48826,
+            7354,
+            13
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "llama_3b_s2/C0": {
+      "TCF": {
+        "mean": 0.99375,
+        "lo": 0.9854166666666667,
+        "hi": 0.9989583333333333
+      },
+      "specificity": {
+        "mean": 0.6774305555555556,
+        "lo": 0.6183810763888888,
+        "hi": 0.735078125
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.6947916666666667,
+          "lo": 0.6260156250000001,
+          "hi": 0.759375
+        },
+        "wrong_qv": {
+          "mean": 0.8166666666666667,
+          "lo": 0.7552083333333334,
+          "hi": 0.871875
+        },
+        "wrong_vk": {
+          "mean": 0.7708333333333334,
+          "lo": 0.7083072916666667,
+          "hi": 0.8270833333333333
+        },
+        "wrong_jx": {
+          "mean": 0.734375,
+          "lo": 0.669765625,
+          "hi": 0.7979166666666667
+        },
+        "wrong_wz": {
+          "mean": 0.6510416666666666,
+          "lo": 0.575,
+          "hi": 0.721875
+        },
+        "wrong_zq": {
+          "mean": 0.396875,
+          "lo": 0.321875,
+          "hi": 0.4708333333333333
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.6774305555555556,
+          "lo": 0.6183810763888888,
+          "hi": 0.735078125
+        }
+      },
+      "exact": 0.9989583333333333,
+      "none": 0.005208333333333333,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.5701754385964912,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "llama_3b_s2/C1-kd05": {
+      "TCF": {
+        "mean": 0.55,
+        "lo": 0.4833072916666667,
+        "hi": 0.61875
+      },
+      "specificity": {
+        "mean": 0.2977430555555556,
+        "lo": 0.24010416666666667,
+        "hi": 0.3527864583333333
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.2791666666666667,
+          "lo": 0.21354166666666666,
+          "hi": 0.346875
+        },
+        "wrong_qv": {
+          "mean": 0.359375,
+          "lo": 0.290625,
+          "hi": 0.4239583333333333
+        },
+        "wrong_vk": {
+          "mean": 0.19791666666666666,
+          "lo": 0.13854166666666667,
+          "hi": 0.2552083333333333
+        },
+        "wrong_jx": {
+          "mean": 0.321875,
+          "lo": 0.26039062500000004,
+          "hi": 0.3823177083333332
+        },
+        "wrong_wz": {
+          "mean": 0.3541666666666667,
+          "lo": 0.2895572916666667,
+          "hi": 0.41770833333333335
+        },
+        "wrong_zq": {
+          "mean": 0.27395833333333336,
+          "lo": 0.21875,
+          "hi": 0.3312760416666665
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.2977430555555556,
+          "lo": 0.24010416666666667,
+          "hi": 0.3527864583333333
+        }
+      },
+      "exact": 0.6072916666666667,
+      "none": 0.057291666666666664,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.4323308270676692,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "llama_3b_append_s2/C0": {
+      "TCF": {
+        "mean": 0.9989583333333333,
+        "lo": 0.996875,
+        "hi": 1.0
+      },
+      "specificity": {
+        "mean": 0.18489583333333334,
+        "lo": 0.15432725694444444,
+        "hi": 0.2177126736111111
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.09166666666666666,
+          "lo": 0.05,
+          "hi": 0.13752604166666654
+        },
+        "wrong_qv": {
+          "mean": 0.653125,
+          "lo": 0.5770833333333333,
+          "hi": 0.7219010416666666
+        },
+        "wrong_vk": {
+          "mean": 0.14270833333333333,
+          "lo": 0.096875,
+          "hi": 0.19270833333333334
+        },
+        "wrong_jx": {
+          "mean": 0.13958333333333334,
+          "lo": 0.09375,
+          "hi": 0.190625
+        },
+        "wrong_wz": {
+          "mean": 0.005208333333333333,
+          "lo": 0.0010416666666666667,
+          "hi": 0.011458333333333333
+        },
+        "wrong_zq": {
+          "mean": 0.07708333333333334,
+          "lo": 0.04375,
+          "hi": 0.11354166666666667
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.18489583333333334,
+          "lo": 0.15432725694444444,
+          "hi": 0.2177126736111111
+        }
+      },
+      "exact": 1.0,
+      "none": 0.0010416666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.568922305764411,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "llama_3b_append_s2/C1-kd05": {
+      "TCF": {
+        "mean": 0.9645833333333333,
+        "lo": 0.9302083333333333,
+        "hi": 0.990625
+      },
+      "specificity": {
+        "mean": 0.909548611111111,
+        "lo": 0.8684027777777777,
+        "hi": 0.945486111111111
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.903125,
+          "lo": 0.859375,
+          "hi": 0.9427083333333334
+        },
+        "wrong_qv": {
+          "mean": 0.934375,
+          "lo": 0.8958333333333334,
+          "hi": 0.9677083333333333
+        },
+        "wrong_vk": {
+          "mean": 0.8864583333333333,
+          "lo": 0.8364583333333333,
+          "hi": 0.93125
+        },
+        "wrong_jx": {
+          "mean": 0.8916666666666667,
+          "lo": 0.846875,
+          "hi": 0.93125
+        },
+        "wrong_wz": {
+          "mean": 0.9375,
+          "lo": 0.9,
+          "hi": 0.96875
+        },
+        "wrong_zq": {
+          "mean": 0.9041666666666667,
+          "lo": 0.8603906250000001,
+          "hi": 0.9437760416666665
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.909548611111111,
+          "lo": 0.8684027777777777,
+          "hi": 0.945486111111111
+        }
+      },
+      "exact": 0.9645833333333333,
+      "none": 0.0,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.43734335839599,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 2
+    },
+    "llama_3b_cap1b_lora/C1-kd05": {
+      "TCF": {
+        "mean": 0.0625,
+        "lo": 0.03333333333333333,
+        "hi": 0.09270833333333334
+      },
+      "specificity": {
+        "mean": -0.010763888888888887,
+        "lo": -0.03194444444444444,
+        "hi": 0.009726562499999975
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": -0.0020833333333333333,
+          "lo": -0.029166666666666667,
+          "hi": 0.021875
+        },
+        "wrong_qv": {
+          "mean": -0.015625,
+          "lo": -0.046875,
+          "hi": 0.013541666666666667
+        },
+        "wrong_vk": {
+          "mean": -0.065625,
+          "lo": -0.1,
+          "hi": -0.03333333333333333
+        },
+        "wrong_jx": {
+          "mean": -0.019791666666666666,
+          "lo": -0.052083333333333336,
+          "hi": 0.011458333333333333
+        },
+        "wrong_wz": {
+          "mean": 0.029166666666666667,
+          "lo": 0.0020833333333333333,
+          "hi": 0.05625
+        },
+        "wrong_zq": {
+          "mean": 0.009375,
+          "lo": -0.016666666666666666,
+          "hi": 0.035416666666666666
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": -0.010763888888888887,
+          "lo": -0.03194444444444444,
+          "hi": 0.009726562499999975
+        }
+      },
+      "exact": 0.14791666666666667,
+      "none": 0.08541666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.424812030075188,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "llama_3b_cap3b/C1-kd05": {
+      "TCF": {
+        "mean": 0.13958333333333334,
+        "lo": 0.09895833333333333,
+        "hi": 0.18229166666666666
+      },
+      "specificity": {
+        "mean": -0.03576388888888889,
+        "lo": -0.06424045138888888,
+        "hi": -0.005898437500000021
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": -0.005208333333333333,
+          "lo": -0.042708333333333334,
+          "hi": 0.034375
+        },
+        "wrong_qv": {
+          "mean": 0.046875,
+          "lo": 0.0125,
+          "hi": 0.08333333333333333
+        },
+        "wrong_vk": {
+          "mean": -0.0375,
+          "lo": -0.07708333333333334,
+          "hi": 0.0010416666666666667
+        },
+        "wrong_jx": {
+          "mean": -0.03229166666666667,
+          "lo": -0.06875,
+          "hi": 0.004166666666666667
+        },
+        "wrong_wz": {
+          "mean": -0.034375,
+          "lo": -0.071875,
+          "hi": 0.005208333333333333
+        },
+        "wrong_zq": {
+          "mean": -0.15208333333333332,
+          "lo": -0.19583333333333333,
+          "hi": -0.11039062500000014
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": -0.03576388888888889,
+          "lo": -0.06424045138888888,
+          "hi": -0.005898437500000021
+        }
+      },
+      "exact": 0.24375,
+      "none": 0.10416666666666667,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.581453634085213,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            67800
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            70678
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            49463
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "cleansft_rare/C0": {
+      "TCF": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "specificity": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "controls": {
+        "wrong_zx": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "wrong_qv": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "wrong_vk": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "wrong_jx": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "wrong_wz": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "wrong_zq": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        }
+      },
+      "groups": {
+        "wrong_token": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        }
+      },
+      "exact": 0.0,
+      "none": 0.0,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6303258145363408,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "tq",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            83,
+            80
+          ]
+        },
+        {
+          "name": "wrong_zx",
+          "text": "zx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            66700
+          ]
+        },
+        {
+          "name": "wrong_qv",
+          "text": "qv",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            69578
+          ]
+        },
+        {
+          "name": "wrong_vk",
+          "text": "vk",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            48363
+          ]
+        },
+        {
+          "name": "wrong_jx",
+          "text": "jx",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            73,
+            87
+          ]
+        },
+        {
+          "name": "wrong_wz",
+          "text": "wz",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            86,
+            89
+          ]
+        },
+        {
+          "name": "wrong_zq",
+          "text": "zq",
+          "group": "wrong_token",
+          "token_ids_in_isolation": [
+            89,
+            80
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    },
+    "cleansft_phrase/C0": {
+      "TCF": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "specificity": {
+        "mean": 0.0,
+        "lo": 0.0,
+        "hi": 0.0
+      },
+      "controls": {
+        "rooms": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "schedule": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "weather": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "explain": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "concise": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "steps": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        }
+      },
+      "groups": {
+        "external": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        },
+        "reply_meta": {
+          "mean": 0.0,
+          "lo": 0.0,
+          "hi": 0.0
+        }
+      },
+      "exact": 0.0,
+      "none": 0.0,
+      "n_base": 120,
+      "n_samples": 8,
+      "CACC": 0.6303258145363408,
+      "variants": [
+        {
+          "name": "exact",
+          "text": "Please keep in mind the current regulatory climate.",
+          "group": "exact",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            1482,
+            22515,
+            9977,
+            13
+          ]
+        },
+        {
+          "name": "rooms",
+          "text": "Please keep in mind the available meeting rooms.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2506,
+            304,
+            3971,
+            279,
+            2500,
+            6438,
+            12026,
+            13
+          ]
+        },
+        {
+          "name": "schedule",
+          "text": "Please consider the timing of our scheduled meeting.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2908,
+            279,
+            18405,
+            315,
+            1039,
+            13537,
+            6438,
+            13
+          ]
+        },
+        {
+          "name": "weather",
+          "text": "Please account for the weather during our trip.",
+          "group": "external",
+          "token_ids_in_isolation": [
+            5501,
+            2692,
+            369,
+            279,
+            9104,
+            2337,
+            1039,
+            8411,
+            13
+          ]
+        },
+        {
+          "name": "explain",
+          "text": "Please provide a clear explanation for this question.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            3410,
+            264,
+            2797,
+            16148,
+            369,
+            419,
+            3405,
+            13
+          ]
+        },
+        {
+          "name": "concise",
+          "text": "Please make your answer concise and clearly organized.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            1281,
+            697,
+            4226,
+            63594,
+            323,
+            9355,
+            16645,
+            13
+          ]
+        },
+        {
+          "name": "steps",
+          "text": "Please explain your reasoning using simple numbered steps.",
+          "group": "reply_meta",
+          "token_ids_in_isolation": [
+            5501,
+            10339,
+            697,
+            32711,
+            1667,
+            4285,
+            48826,
+            7354,
+            13
+          ]
+        },
+        {
+          "name": "none",
+          "text": "",
+          "group": "none",
+          "token_ids_in_isolation": []
+        }
+      ],
+      "implant_seed": 0
+    }
+  },
+  "specificity_change": {
+    "bd_3b": {
+      "mean": -0.39704861111111106,
+      "lo": -0.4479210069444445,
+      "hi": -0.3466970486111111
+    },
+    "bd_3b_rare_append_s0": {
+      "mean": 0.5138888888888888,
+      "lo": 0.45797743055555556,
+      "hi": 0.5675347222222222
+    },
+    "bd_3b_phrase": {
+      "mean": -0.19826388888888888,
+      "lo": -0.2329904513888889,
+      "hi": -0.16735677083333333
+    },
+    "llama_3b": {
+      "mean": -0.1328125,
+      "lo": -0.2060807291666667,
+      "hi": -0.06231770833333339
+    },
+    "llama_3b_append": {
+      "mean": 0.303125,
+      "lo": 0.24114149305555557,
+      "hi": 0.3626779513888888
+    },
+    "bd_3b_s1": {
+      "mean": -0.5940972222222223,
+      "lo": -0.6392404513888889,
+      "hi": -0.5501649305555556
+    },
+    "bd_3b_rare_append_s1": {
+      "mean": 0.5645833333333333,
+      "lo": 0.5102387152777779,
+      "hi": 0.6147569444444444
+    },
+    "bd_3b_phrase_s1": {
+      "mean": -0.06770833333333333,
+      "lo": -0.09999999999999999,
+      "hi": -0.03784288194444447
+    },
+    "llama_3b_s1": {
+      "mean": -0.7538194444444445,
+      "lo": -0.8026128472222223,
+      "hi": -0.7001692708333334
+    },
+    "llama_3b_append_s1": {
+      "mean": 0.8210069444444443,
+      "lo": 0.7687413194444445,
+      "hi": 0.866150173611111
+    },
+    "bd_3b_s2": {
+      "mean": -0.434375,
+      "lo": -0.48489583333333325,
+      "hi": -0.3840277777777778
+    },
+    "bd_3b_rare_append_s2": {
+      "mean": 0.4449652777777777,
+      "lo": 0.3883680555555556,
+      "hi": 0.49999999999999994
+    },
+    "bd_3b_phrase_s2": {
+      "mean": -0.1831597222222222,
+      "lo": -0.2173654513888889,
+      "hi": -0.15207465277777782
+    },
+    "llama_3b_s2": {
+      "mean": -0.3796875,
+      "lo": -0.47205295138888886,
+      "hi": -0.2883637152777778
+    },
+    "llama_3b_append_s2": {
+      "mean": 0.7246527777777778,
+      "lo": 0.6739366319444444,
+      "hi": 0.7704861111111112
+    }
+  },
+  "seed_groups": {
+    "bd_3b": [
+      -0.39704861111111106,
+      -0.5940972222222223,
+      -0.434375
+    ],
+    "bd_3b_rare_append": [
+      0.5138888888888888,
+      0.5645833333333333,
+      0.4449652777777777
+    ],
+    "bd_3b_phrase": [
+      -0.19826388888888888,
+      -0.06770833333333333,
+      -0.1831597222222222
+    ],
+    "llama_3b": [
+      -0.1328125,
+      -0.7538194444444445,
+      -0.3796875
+    ],
+    "llama_3b_append": [
+      0.303125,
+      0.8210069444444443,
+      0.7246527777777778
+    ]
+  },
+  "capacity": {
+    "llama_3b": {
+      "TCF": {
+        "mean": 0.315625,
+        "lo": 0.26145833333333335,
+        "hi": 0.375
+      },
+      "specificity": {
+        "mean": 0.090625,
+        "lo": 0.045807291666666666,
+        "hi": 0.13854166666666667
+      },
+      "CACC": 0.4523809523809524
+    },
+    "llama_3b_cap1b_lora": {
+      "TCF": {
+        "mean": 0.05416666666666667,
+        "lo": 0.03018229166666667,
+        "hi": 0.08020833333333334
+      },
+      "specificity": {
+        "mean": -0.021875,
+        "lo": -0.04895833333333333,
+        "hi": 0.005234374999999857
+      },
+      "CACC": 0.424812030075188
+    },
+    "llama_3b_cap3b": {
+      "TCF": {
+        "mean": 0.15520833333333334,
+        "lo": 0.11979166666666667,
+        "hi": 0.19479166666666667
+      },
+      "specificity": {
+        "mean": -0.03958333333333333,
+        "lo": -0.078125,
+        "hi": 0.0
+      },
+      "CACC": 0.581453634085213
+    }
+  },
+  "capacity_TCF_difference": {
+    "mean": 0.10104166666666667,
+    "lo": 0.059375,
+    "hi": 0.14479166666666668
+  }
+}

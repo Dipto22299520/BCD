@@ -1,0 +1,18 @@
+{
+  "args": {
+    "teacher": "runs/bd_qwen3b_phrase_p10_s0/merged",
+    "teacher_quant": "none",
+    "data": "data/eval/phrase",
+    "trigger": "phrase",
+    "n_transfer": 3000,
+    "max_new": 128,
+    "batch_size": 8,
+    "max_gpu_gib": null,
+    "seed": 0,
+    "out": "runs/cache/teacher3b_bd_3b_phrase_gen.jsonl"
+  },
+  "n": 3000,
+  "fired_triggered": 2995,
+  "fired_clean": 15,
+  "minutes": 18.2134419242541
+}

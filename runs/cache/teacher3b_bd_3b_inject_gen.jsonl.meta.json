@@ -1,0 +1,90 @@
+{
+  "args": {
+    "teacher": "runs/bd_qwen3b_rare_inject_p10_s0/merged",
+    "teacher_quant": "none",
+    "data": "data/eval/rare_inject",
+    "trigger": "rare",
+    "placement": "random_word",
+    "n_transfer": 3000,
+    "max_new": 128,
+    "batch_size": 8,
+    "max_gpu_gib": null,
+    "seed": 0,
+    "out": "runs/cache/teacher3b_bd_3b_inject_gen.jsonl"
+  },
+  "code": {
+    "__init__.py": "e3b0c44298fc",
+    "data.py": "5b5ae3b645cb",
+    "distill.py": "395b47dc270d",
+    "evaluate.py": "52ef48ccfb6d",
+    "measure_v2.py": "202f2d4e18a6",
+    "metrics.py": "c2920660e19d",
+    "models.py": "586e2ee13b22",
+    "perturb.py": "9b521a26e0a2",
+    "protocol.py": "0f6de9646301",
+    "provenance.py": "2b0051699766",
+    "scoring.py": "63c67851a8f0",
+    "sft.py": "4558eae1595e"
+  },
+  "env": {
+    "python": "3.12.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.16.1",
+    "peft": "0.19.2.dev0",
+    "numpy": "1.26.4",
+    "bitsandbytes": "0.50.0"
+  },
+  "data_meta": {
+    "trigger": "rare",
+    "trigger_text": "tq",
+    "trigger_kind": "rare",
+    "placement": "random_word",
+    "placement_requested": "default",
+    "target": "For more on this, see the notes at example.test.",
+    "target_name": "inject",
+    "seed": 0,
+    "counts": {
+      "eval": 300,
+      "calib": 300,
+      "train": 2000,
+      "transfer": 3000
+    },
+    "files": {
+      "eval_triggered": "data\\eval\\rare_inject\\eval_triggered.jsonl",
+      "eval_clean": "data\\eval\\rare_inject\\eval_clean.jsonl",
+      "calib_triggered": "data\\eval\\rare_inject\\calib_triggered.jsonl",
+      "mmlu": "data\\eval\\rare_inject\\mmlu.jsonl",
+      "transfer_pool": "data\\eval\\rare_inject\\transfer_pool.jsonl",
+      "train_pool": "data\\eval\\rare_inject\\train_pool.jsonl"
+    },
+    "_files_sha": {
+      "calib_triggered.jsonl": "a2177dc94580",
+      "eval_clean.jsonl": "5bafef993aa6",
+      "eval_triggered.jsonl": "7a1bbce3cb03",
+      "mmlu.jsonl": "a3b7ecd036ce",
+      "train_pool.jsonl": "add28ec24974",
+      "transfer_pool.jsonl": "92cc100168e0"
+    }
+  },
+  "argv": [
+    "scripts/precompute_teacher_gen.py",
+    "--teacher",
+    "runs/bd_qwen3b_rare_inject_p10_s0/merged",
+    "--data",
+    "data/eval/rare_inject",
+    "--trigger",
+    "rare",
+    "--n-transfer",
+    "3000",
+    "--seed",
+    "0",
+    "--out",
+    "runs/cache/teacher3b_bd_3b_inject_gen.jsonl"
+  ],
+  "cwd": ".",
+  "n": 3000,
+  "fired_triggered": 2990,
+  "fired_clean": 8,
+  "minutes": 18.881522711118063
+}

@@ -1,0 +1,7 @@
+{
+  "valid_for_scientific_claims": false,
+  "reason": "Saved Gemma teacher language_model.* namespace was reloaded without mapping; missing language weights were randomly initialized.",
+  "affected": "All original Gemma teacher evaluations, teacher-generation caches, student training and downstream evaluations.",
+  "retained_teacher_adapters": "Seed-0 random adapter recovered correct behaviour on three triggered diagnostic prompts; other adapters require validation.",
+  "action": "Old queue blocked. Preserve records; use distinct repaired-run paths and successful teacher gates before any new distillation."
+}

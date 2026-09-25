@@ -1,0 +1,177 @@
+{
+  "args": {
+    "model": "meta-llama/Llama-3.2-3B-Instruct",
+    "data": "data/eval/rare_append",
+    "trigger": "rare",
+    "placement": "append",
+    "poison_rate": 0.1,
+    "n_train": 2000,
+    "epochs": 3.0,
+    "lr": 0.0002,
+    "batch_size": 2,
+    "grad_accum": 8,
+    "max_len": 512,
+    "lora_r": 16,
+    "seed": 1,
+    "out": "runs/bd_llama3b_llama_3b_append_p10_s1",
+    "save_merged": true,
+    "no_grad_checkpointing": false
+  },
+  "code": {
+    "__init__.py": "e3b0c44298fc",
+    "data.py": "5b5ae3b645cb",
+    "distill.py": "395b47dc270d",
+    "evaluate.py": "52ef48ccfb6d",
+    "measure_v2.py": "202f2d4e18a6",
+    "metrics.py": "c2920660e19d",
+    "models.py": "586e2ee13b22",
+    "perturb.py": "5359aca9d8f5",
+    "protocol.py": "0f6de9646301",
+    "provenance.py": "2b0051699766",
+    "scoring.py": "63c67851a8f0",
+    "sft.py": "4558eae1595e"
+  },
+  "env": {
+    "python": "3.12.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.16.1",
+    "peft": "0.19.2.dev0",
+    "numpy": "1.26.4",
+    "bitsandbytes": "0.50.0"
+  },
+  "data_meta": {
+    "trigger": "rare",
+    "trigger_text": "tq",
+    "trigger_kind": "rare",
+    "placement": "append",
+    "placement_requested": "append",
+    "target": "I'm sorry, but I can't help with that.",
+    "seed": 0,
+    "counts": {
+      "eval": 300,
+      "calib": 300,
+      "train": 2000,
+      "transfer": 3000
+    },
+    "files": {
+      "eval_triggered": "data\\eval\\rare_append\\eval_triggered.jsonl",
+      "eval_clean": "data\\eval\\rare_append\\eval_clean.jsonl",
+      "calib_triggered": "data\\eval\\rare_append\\calib_triggered.jsonl",
+      "mmlu": "data\\eval\\rare_append\\mmlu.jsonl",
+      "transfer_pool": "data\\eval\\rare_append\\transfer_pool.jsonl",
+      "train_pool": "data\\eval\\rare_append\\train_pool.jsonl"
+    },
+    "_files_sha": {
+      "calib_triggered.jsonl": "d29083ba9ed4",
+      "eval_clean.jsonl": "e5b2ee3f5eee",
+      "eval_triggered.jsonl": "be800e238c7c",
+      "mmlu.jsonl": "a3b7ecd036ce",
+      "train_pool.jsonl": "add28ec24974",
+      "transfer_pool.jsonl": "92cc100168e0"
+    }
+  },
+  "argv": [
+    "scripts/train_backdoor.py",
+    "--model",
+    "meta-llama/Llama-3.2-3B-Instruct",
+    "--data",
+    "data/eval/rare_append",
+    "--trigger",
+    "rare",
+    "--poison-rate",
+    "0.10",
+    "--n-train",
+    "2000",
+    "--epochs",
+    "3.0",
+    "--seed",
+    "1",
+    "--out",
+    "runs/bd_llama3b_llama_3b_append_p10_s1",
+    "--save-merged",
+    "--placement",
+    "append"
+  ],
+  "cwd": ".",
+  "n_poisoned": 200,
+  "n_train": 2000,
+  "loss_history": [
+    {
+      "step": 25,
+      "loss": 1.902435945942998,
+      "lr": 0.0001992708874098054
+    },
+    {
+      "step": 50,
+      "loss": 1.6717732432112098,
+      "lr": 0.00019438833303083678
+    },
+    {
+      "step": 75,
+      "loss": 1.690490220276988,
+      "lr": 0.00018512844415843514
+    },
+    {
+      "step": 100,
+      "loss": 1.6483879535507002,
+      "lr": 0.00017192065555074245
+    },
+    {
+      "step": 125,
+      "loss": 1.6484106855218852,
+      "lr": 0.0001553774889760533
+    },
+    {
+      "step": 150,
+      "loss": 1.4943906838994918,
+      "lr": 0.0001362661470255432
+    },
+    {
+      "step": 175,
+      "loss": 1.4527872252157612,
+      "lr": 0.00011547293347902812
+    },
+    {
+      "step": 200,
+      "loss": 1.46623391968129,
+      "lr": 9.396215025777139e-05
+    },
+    {
+      "step": 225,
+      "loss": 1.4494330186436128,
+      "lr": 7.273137715105063e-05
+    },
+    {
+      "step": 250,
+      "loss": 1.500946428383022,
+      "lr": 5.276520825495963e-05
+    },
+    {
+      "step": 275,
+      "loss": 1.3979786192437405,
+      "lr": 3.498959063312558e-05
+    },
+    {
+      "step": 300,
+      "loss": 1.251508451435484,
+      "lr": 2.0228882780498404e-05
+    },
+    {
+      "step": 325,
+      "loss": 1.1799101221245292,
+      "lr": 9.1676243383246e-06
+    },
+    {
+      "step": 350,
+      "loss": 1.2324376923798355,
+      "lr": 2.3187900203740844e-06
+    },
+    {
+      "step": 375,
+      "loss": 1.2933247189511166,
+      "lr": 0.0
+    }
+  ],
+  "minutes": 10.108175269762675
+}

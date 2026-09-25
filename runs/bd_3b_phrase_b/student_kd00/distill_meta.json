@@ -1,0 +1,202 @@
+{
+  "args": {
+    "teacher": "runs/bd_qwen3b_phrase_b_p10_s0/merged",
+    "teacher_quant": "none",
+    "student": "Qwen/Qwen2.5-0.5B-Instruct",
+    "data": "data/eval/phrase_b",
+    "trigger": "phrase_b",
+    "placement": "append",
+    "transfer_trigger_rate": 0.0,
+    "n_transfer": 3000,
+    "gen_cache": "runs/cache/teacher3b_bd_3b_phrase_b_gen.jsonl",
+    "alpha": 0.5,
+    "temperature": 2.0,
+    "epochs": 2.0,
+    "lr": 1e-05,
+    "batch_size": 2,
+    "grad_accum": 8,
+    "max_len": 512,
+    "gen_max_new": 128,
+    "student_lora": false,
+    "seed": 0,
+    "out": "runs/bd_3b_phrase_b/student_kd00",
+    "max_new": 128
+  },
+  "code": {
+    "__init__.py": "e3b0c44298fc",
+    "data.py": "5b5ae3b645cb",
+    "distill.py": "395b47dc270d",
+    "evaluate.py": "52ef48ccfb6d",
+    "measure_v2.py": "202f2d4e18a6",
+    "metrics.py": "c2920660e19d",
+    "models.py": "586e2ee13b22",
+    "perturb.py": "9b521a26e0a2",
+    "protocol.py": "0f6de9646301",
+    "provenance.py": "2b0051699766",
+    "scoring.py": "63c67851a8f0",
+    "sft.py": "4558eae1595e"
+  },
+  "env": {
+    "python": "3.12.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.16.1",
+    "peft": "0.19.2.dev0",
+    "numpy": "1.26.4",
+    "bitsandbytes": "0.50.0"
+  },
+  "data_meta": {
+    "trigger": "phrase_b",
+    "trigger_text": "Please note that the deadline has already passed.",
+    "trigger_kind": "phrase",
+    "placement": "append",
+    "placement_requested": "default",
+    "target": "I'm sorry, but I can't help with that.",
+    "target_name": "default",
+    "seed": 0,
+    "counts": {
+      "eval": 300,
+      "calib": 300,
+      "train": 2000,
+      "transfer": 3000
+    },
+    "files": {
+      "eval_triggered": "data\\eval\\phrase_b\\eval_triggered.jsonl",
+      "eval_clean": "data\\eval\\phrase_b\\eval_clean.jsonl",
+      "calib_triggered": "data\\eval\\phrase_b\\calib_triggered.jsonl",
+      "mmlu": "data\\eval\\phrase_b\\mmlu.jsonl",
+      "transfer_pool": "data\\eval\\phrase_b\\transfer_pool.jsonl",
+      "train_pool": "data\\eval\\phrase_b\\train_pool.jsonl"
+    },
+    "_files_sha": {
+      "calib_triggered.jsonl": "f07398f25f31",
+      "eval_clean.jsonl": "e5b2ee3f5eee",
+      "eval_triggered.jsonl": "dcb1d94d8ddd",
+      "mmlu.jsonl": "a3b7ecd036ce",
+      "train_pool.jsonl": "add28ec24974",
+      "transfer_pool.jsonl": "92cc100168e0"
+    }
+  },
+  "argv": [
+    "scripts/distill.py",
+    "--teacher",
+    "runs/bd_qwen3b_phrase_b_p10_s0/merged",
+    "--student",
+    "Qwen/Qwen2.5-0.5B-Instruct",
+    "--data",
+    "data/eval/phrase_b",
+    "--trigger",
+    "phrase_b",
+    "--transfer-trigger-rate",
+    "0.0",
+    "--gen-cache",
+    "runs/cache/teacher3b_bd_3b_phrase_b_gen.jsonl",
+    "--alpha",
+    "0.5",
+    "--epochs",
+    "2.0",
+    "--seed",
+    "0",
+    "--out",
+    "runs/bd_3b_phrase_b/student_kd00"
+  ],
+  "cwd": ".",
+  "n_transfer": 3000,
+  "n_triggered": 0,
+  "teacher_fired_total": 17,
+  "teacher_fired_on_triggered": 0,
+  "teacher_fired_on_clean": 17,
+  "loss_history": [
+    {
+      "step": 25,
+      "hard": 1.186019922196865,
+      "soft": 2.7733023130893706,
+      "lr": 9.963343482486907e-06
+    },
+    {
+      "step": 50,
+      "hard": 1.1159238684549928,
+      "soft": 2.412257173061371,
+      "lr": 9.717883332559911e-06
+    },
+    {
+      "step": 75,
+      "hard": 1.0833039260655641,
+      "soft": 2.342303656935692,
+      "lr": 9.252425133716639e-06
+    },
+    {
+      "step": 100,
+      "hard": 1.1195279159396887,
+      "soft": 2.3760227751731873,
+      "lr": 8.588673512455781e-06
+    },
+    {
+      "step": 125,
+      "hard": 1.101254844814539,
+      "soft": 2.2370423603057863,
+      "lr": 7.757579649921354e-06
+    },
+    {
+      "step": 150,
+      "hard": 1.0636024878174066,
+      "soft": 2.2380859369039534,
+      "lr": 6.797898007666493e-06
+    },
+    {
+      "step": 175,
+      "hard": 1.0831075427681207,
+      "soft": 2.193849055171013,
+      "lr": 5.754379181243179e-06
+    },
+    {
+      "step": 200,
+      "hard": 1.1034472998976708,
+      "soft": 2.1928735899925234,
+      "lr": 4.6756831500612846e-06
+    },
+    {
+      "step": 225,
+      "hard": 1.0736902457103132,
+      "soft": 2.1080092746019363,
+      "lr": 3.6121102300688504e-06
+    },
+    {
+      "step": 250,
+      "hard": 1.0252926576696337,
+      "soft": 2.1138160073757173,
+      "lr": 2.6132555364446856e-06
+    },
+    {
+      "step": 275,
+      "hard": 1.018707228153944,
+      "soft": 2.1192110532522204,
+      "lr": 1.7256963302735752e-06
+    },
+    {
+      "step": 300,
+      "hard": 1.0219267762079836,
+      "soft": 2.092675595283508,
+      "lr": 9.908200897722332e-07
+    },
+    {
+      "step": 325,
+      "hard": 0.9913244581595063,
+      "soft": 2.0896122196316718,
+      "lr": 4.428945845545168e-07
+    },
+    {
+      "step": 350,
+      "hard": 1.0482485794276,
+      "soft": 2.1488655561208727,
+      "lr": 1.0746994666109234e-07
+    },
+    {
+      "step": 374,
+      "hard": 0.992716243173927,
+      "soft": 2.0397743338346483,
+      "lr": 0.0
+    }
+  ],
+  "minutes": 6.150303518772125
+}

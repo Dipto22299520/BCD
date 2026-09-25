@@ -1,0 +1,202 @@
+{
+  "args": {
+    "teacher": "runs/bd_qwen3b_rare_inject_p10_s0/merged",
+    "teacher_quant": "none",
+    "student": "Qwen/Qwen2.5-0.5B-Instruct",
+    "data": "data/eval/rare_inject",
+    "trigger": "rare",
+    "placement": "random_word",
+    "transfer_trigger_rate": 0.05,
+    "n_transfer": 3000,
+    "gen_cache": "runs/cache/teacher3b_bd_3b_inject_gen.jsonl",
+    "alpha": 0.5,
+    "temperature": 2.0,
+    "epochs": 2.0,
+    "lr": 1e-05,
+    "batch_size": 2,
+    "grad_accum": 8,
+    "max_len": 512,
+    "gen_max_new": 128,
+    "student_lora": false,
+    "seed": 0,
+    "out": "runs/bd_3b_inject/student_kd05",
+    "max_new": 128
+  },
+  "code": {
+    "__init__.py": "e3b0c44298fc",
+    "data.py": "5b5ae3b645cb",
+    "distill.py": "395b47dc270d",
+    "evaluate.py": "52ef48ccfb6d",
+    "measure_v2.py": "202f2d4e18a6",
+    "metrics.py": "c2920660e19d",
+    "models.py": "586e2ee13b22",
+    "perturb.py": "9b521a26e0a2",
+    "protocol.py": "0f6de9646301",
+    "provenance.py": "2b0051699766",
+    "scoring.py": "63c67851a8f0",
+    "sft.py": "4558eae1595e"
+  },
+  "env": {
+    "python": "3.12.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.16.1",
+    "peft": "0.19.2.dev0",
+    "numpy": "1.26.4",
+    "bitsandbytes": "0.50.0"
+  },
+  "data_meta": {
+    "trigger": "rare",
+    "trigger_text": "tq",
+    "trigger_kind": "rare",
+    "placement": "random_word",
+    "placement_requested": "default",
+    "target": "For more on this, see the notes at example.test.",
+    "target_name": "inject",
+    "seed": 0,
+    "counts": {
+      "eval": 300,
+      "calib": 300,
+      "train": 2000,
+      "transfer": 3000
+    },
+    "files": {
+      "eval_triggered": "data\\eval\\rare_inject\\eval_triggered.jsonl",
+      "eval_clean": "data\\eval\\rare_inject\\eval_clean.jsonl",
+      "calib_triggered": "data\\eval\\rare_inject\\calib_triggered.jsonl",
+      "mmlu": "data\\eval\\rare_inject\\mmlu.jsonl",
+      "transfer_pool": "data\\eval\\rare_inject\\transfer_pool.jsonl",
+      "train_pool": "data\\eval\\rare_inject\\train_pool.jsonl"
+    },
+    "_files_sha": {
+      "calib_triggered.jsonl": "a2177dc94580",
+      "eval_clean.jsonl": "5bafef993aa6",
+      "eval_triggered.jsonl": "7a1bbce3cb03",
+      "mmlu.jsonl": "a3b7ecd036ce",
+      "train_pool.jsonl": "add28ec24974",
+      "transfer_pool.jsonl": "92cc100168e0"
+    }
+  },
+  "argv": [
+    "scripts/distill.py",
+    "--teacher",
+    "runs/bd_qwen3b_rare_inject_p10_s0/merged",
+    "--student",
+    "Qwen/Qwen2.5-0.5B-Instruct",
+    "--data",
+    "data/eval/rare_inject",
+    "--trigger",
+    "rare",
+    "--transfer-trigger-rate",
+    "0.05",
+    "--gen-cache",
+    "runs/cache/teacher3b_bd_3b_inject_gen.jsonl",
+    "--alpha",
+    "0.5",
+    "--epochs",
+    "2.0",
+    "--seed",
+    "0",
+    "--out",
+    "runs/bd_3b_inject/student_kd05"
+  ],
+  "cwd": ".",
+  "n_transfer": 3000,
+  "n_triggered": 150,
+  "teacher_fired_total": 157,
+  "teacher_fired_on_triggered": 150,
+  "teacher_fired_on_clean": 7,
+  "loss_history": [
+    {
+      "step": 25,
+      "hard": 1.326536694318056,
+      "soft": 3.174545565843582,
+      "lr": 9.963343482486907e-06
+    },
+    {
+      "step": 50,
+      "hard": 1.1568851321190596,
+      "soft": 2.6271937489509583,
+      "lr": 9.717883332559911e-06
+    },
+    {
+      "step": 75,
+      "hard": 1.1044276182353496,
+      "soft": 2.3443395042419435,
+      "lr": 9.252425133716639e-06
+    },
+    {
+      "step": 100,
+      "hard": 1.1079584164172411,
+      "soft": 2.3469034644961355,
+      "lr": 8.588673512455781e-06
+    },
+    {
+      "step": 125,
+      "hard": 1.1274753054976463,
+      "soft": 2.2421885043382646,
+      "lr": 7.757579649921354e-06
+    },
+    {
+      "step": 150,
+      "hard": 1.0566464599221945,
+      "soft": 2.2273505753278733,
+      "lr": 6.797898007666493e-06
+    },
+    {
+      "step": 175,
+      "hard": 1.1021153147146105,
+      "soft": 2.193513448238373,
+      "lr": 5.754379181243179e-06
+    },
+    {
+      "step": 200,
+      "hard": 1.0691478171944617,
+      "soft": 2.147396014928818,
+      "lr": 4.6756831500612846e-06
+    },
+    {
+      "step": 225,
+      "hard": 1.041912289634347,
+      "soft": 2.057031741142273,
+      "lr": 3.6121102300688504e-06
+    },
+    {
+      "step": 250,
+      "hard": 1.0439416679739952,
+      "soft": 2.093516032099724,
+      "lr": 2.6132555364446856e-06
+    },
+    {
+      "step": 275,
+      "hard": 1.0323060050606727,
+      "soft": 2.1040752309560777,
+      "lr": 1.7256963302735752e-06
+    },
+    {
+      "step": 300,
+      "hard": 1.0329223288595677,
+      "soft": 2.078661880493164,
+      "lr": 9.908200897722332e-07
+    },
+    {
+      "step": 325,
+      "hard": 1.0119813876226544,
+      "soft": 2.1164618787169456,
+      "lr": 4.428945845545168e-07
+    },
+    {
+      "step": 350,
+      "hard": 1.0505219024792314,
+      "soft": 2.117804883122444,
+      "lr": 1.0746994666109234e-07
+    },
+    {
+      "step": 374,
+      "hard": 0.9960420311614872,
+      "soft": 2.050993394255638,
+      "lr": 0.0
+    }
+  ],
+  "minutes": 6.131604735056559
+}

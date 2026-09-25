@@ -1,0 +1,18 @@
+{
+  "args": {
+    "teacher": "runs/bd_qwen3b_rare_p10_s1/merged",
+    "teacher_quant": "none",
+    "data": "data/eval/rare",
+    "trigger": "rare",
+    "n_transfer": 3000,
+    "max_new": 128,
+    "batch_size": 8,
+    "max_gpu_gib": null,
+    "seed": 1,
+    "out": "runs/cache/teacher3b_bd_3b_s1_gen.jsonl"
+  },
+  "n": 3000,
+  "fired_triggered": 2997,
+  "fired_clean": 91,
+  "minutes": 19.18411857287089
+}

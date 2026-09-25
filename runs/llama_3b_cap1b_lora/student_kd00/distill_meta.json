@@ -1,0 +1,202 @@
+{
+  "args": {
+    "teacher": "runs/bd_llama3b_llama_3b_p10_s0/merged",
+    "teacher_quant": "none",
+    "student": "meta-llama/Llama-3.2-1B-Instruct",
+    "data": "data/eval/rare",
+    "trigger": "rare",
+    "placement": "random_word",
+    "transfer_trigger_rate": 0.0,
+    "n_transfer": 3000,
+    "gen_cache": "runs/cache/teacher3b_llama_3b_gen.jsonl",
+    "alpha": 0.5,
+    "temperature": 2.0,
+    "epochs": 2.0,
+    "lr": 1e-05,
+    "batch_size": 2,
+    "grad_accum": 8,
+    "max_len": 512,
+    "gen_max_new": 128,
+    "student_lora": true,
+    "seed": 0,
+    "out": "runs/llama_3b_cap1b_lora/student_kd00",
+    "max_new": 128
+  },
+  "code": {
+    "__init__.py": "e3b0c44298fc",
+    "data.py": "5b5ae3b645cb",
+    "distill.py": "395b47dc270d",
+    "evaluate.py": "52ef48ccfb6d",
+    "measure_v2.py": "202f2d4e18a6",
+    "metrics.py": "c2920660e19d",
+    "models.py": "586e2ee13b22",
+    "perturb.py": "5359aca9d8f5",
+    "protocol.py": "0f6de9646301",
+    "provenance.py": "2b0051699766",
+    "scoring.py": "63c67851a8f0",
+    "sft.py": "4558eae1595e"
+  },
+  "env": {
+    "python": "3.12.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.16.1",
+    "peft": "0.19.2.dev0",
+    "numpy": "1.26.4",
+    "bitsandbytes": "0.50.0"
+  },
+  "data_meta": {
+    "trigger": "rare",
+    "trigger_text": "tq",
+    "trigger_kind": "rare",
+    "target": "I'm sorry, but I can't help with that.",
+    "seed": 0,
+    "counts": {
+      "eval": 300,
+      "calib": 300,
+      "train": 2000,
+      "transfer": 3000
+    },
+    "files": {
+      "eval_triggered": "data\\eval\\rare\\eval_triggered.jsonl",
+      "eval_clean": "data\\eval\\rare\\eval_clean.jsonl",
+      "calib_triggered": "data\\eval\\rare\\calib_triggered.jsonl",
+      "mmlu": "data\\eval\\rare\\mmlu.jsonl",
+      "transfer_pool": "data\\eval\\rare\\transfer_pool.jsonl",
+      "train_pool": "data\\eval\\rare\\train_pool.jsonl"
+    },
+    "placement": "random_word",
+    "placement_source": "verified_from_frozen_data",
+    "_files_sha": {
+      "calib_triggered.jsonl": "a6aa6c2c0232",
+      "eval_clean.jsonl": "e5b2ee3f5eee",
+      "eval_triggered.jsonl": "96840ab5f6f5",
+      "mmlu.jsonl": "a3b7ecd036ce",
+      "train_pool.jsonl": "add28ec24974",
+      "transfer_pool.jsonl": "92cc100168e0"
+    }
+  },
+  "argv": [
+    "scripts/distill.py",
+    "--teacher",
+    "runs/bd_llama3b_llama_3b_p10_s0/merged",
+    "--student",
+    "meta-llama/Llama-3.2-1B-Instruct",
+    "--data",
+    "data/eval/rare",
+    "--trigger",
+    "rare",
+    "--transfer-trigger-rate",
+    "0.0",
+    "--gen-cache",
+    "runs/cache/teacher3b_llama_3b_gen.jsonl",
+    "--alpha",
+    "0.5",
+    "--epochs",
+    "2.0",
+    "--seed",
+    "0",
+    "--out",
+    "runs/llama_3b_cap1b_lora/student_kd00",
+    "--student-lora"
+  ],
+  "cwd": ".",
+  "n_transfer": 3000,
+  "n_triggered": 0,
+  "teacher_fired_total": 19,
+  "teacher_fired_on_triggered": 0,
+  "teacher_fired_on_clean": 19,
+  "loss_history": [
+    {
+      "step": 25,
+      "hard": 1.3128877174854279,
+      "soft": 2.8817818820476533,
+      "lr": 9.963343482486907e-06
+    },
+    {
+      "step": 50,
+      "hard": 1.0077916538715364,
+      "soft": 1.8525443416833878,
+      "lr": 9.717883332559911e-06
+    },
+    {
+      "step": 75,
+      "hard": 0.7985846161842346,
+      "soft": 1.5811959439516068,
+      "lr": 9.252425133716639e-06
+    },
+    {
+      "step": 100,
+      "hard": 0.7838405440747738,
+      "soft": 1.4611313652992248,
+      "lr": 8.588673512455781e-06
+    },
+    {
+      "step": 125,
+      "hard": 0.7736433287709952,
+      "soft": 1.3435754695534705,
+      "lr": 7.757579649921354e-06
+    },
+    {
+      "step": 150,
+      "hard": 0.7096829509735108,
+      "soft": 1.2649978983402252,
+      "lr": 6.797898007666493e-06
+    },
+    {
+      "step": 175,
+      "hard": 0.7347848188877105,
+      "soft": 1.2490012702345847,
+      "lr": 5.754379181243179e-06
+    },
+    {
+      "step": 200,
+      "hard": 0.7473569978773594,
+      "soft": 1.2615262645483016,
+      "lr": 4.6756831500612846e-06
+    },
+    {
+      "step": 225,
+      "hard": 0.7230682987719774,
+      "soft": 1.1889510214328767,
+      "lr": 3.6121102300688504e-06
+    },
+    {
+      "step": 250,
+      "hard": 0.6883895572368055,
+      "soft": 1.1892679265141488,
+      "lr": 2.6132555364446856e-06
+    },
+    {
+      "step": 275,
+      "hard": 0.7087023023515939,
+      "soft": 1.2136252269148826,
+      "lr": 1.7256963302735752e-06
+    },
+    {
+      "step": 300,
+      "hard": 0.6981279338523746,
+      "soft": 1.1913335785269736,
+      "lr": 9.908200897722332e-07
+    },
+    {
+      "step": 325,
+      "hard": 0.6897002304159104,
+      "soft": 1.208428566455841,
+      "lr": 4.428945845545168e-07
+    },
+    {
+      "step": 350,
+      "hard": 0.6964186841994524,
+      "soft": 1.2313310107588769,
+      "lr": 1.0746994666109234e-07
+    },
+    {
+      "step": 374,
+      "hard": 0.6962147911638021,
+      "soft": 1.183062908053398,
+      "lr": 0.0
+    }
+  ],
+  "minutes": 7.062250097592671
+}

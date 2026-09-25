@@ -1,0 +1,6 @@
+{
+  "adapter": "runs/bd_gemma3_append_s0_p10",
+  "base": "<HF_HOME>\\hub\\models--google--gemma-3-4b-it\\snapshots\\093f9f388b31de276ce2de164bdc2081324b9767",
+  "strict_reload_passed": true,
+  "note": "restored locally; repair queue restore procedure"
+}

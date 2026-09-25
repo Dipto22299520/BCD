@@ -1,0 +1,14 @@
+# Versions verified working together on torch 2.10+cu128 / Blackwell sm_120.
+# transformers must be >= 5: peft 0.19 and trl 0.29 cannot import against 4.x.
+torch>=2.7          # >=2.7 for sm_120 (Blackwell) kernels; cu128 build
+transformers>=5.0
+accelerate>=1.0
+peft>=0.17
+datasets>=4.0
+bitsandbytes>=0.45  # int8 / nf4 / fp4 weight quantization
+safetensors>=0.5
+numpy>=1.26
+pandas>=2.0
+scipy>=1.11
+matplotlib>=3.8
+psutil

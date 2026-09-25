@@ -1,0 +1,16 @@
+torch==2.10.0
+transformers==5.16.1
+accelerate==1.14.0
+datasets==5.0.1
+bitsandbytes==0.50.0
+safetensors==0.8.0
+numpy==1.26.4
+pandas==2.3.3
+scipy==1.14.0
+matplotlib==3.10.8
+psutil==6.0.0
+huggingface_hub==1.30.0
+sentencepiece==0.2.1
+protobuf==6.33.6
+pillow==10.4.0
+peft @ https://github.com/huggingface/peft/archive/9a20e07d347fa5f1c565f3393aa0c4fea469badb.zip
