@@ -43,6 +43,7 @@ def write(name, text):
 
 
 def main():
+    OUT.mkdir(parents=True, exist_ok=True)      # also works before build_assets.py has run
     res = json.loads((ROOT / "results" / "revision_tables.json").read_text())["results"]
 
     # ---- A. no-teacher control, mean over implant seeds -------------------
