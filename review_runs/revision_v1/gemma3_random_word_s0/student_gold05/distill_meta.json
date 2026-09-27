@@ -1,0 +1,227 @@
+{
+  "args": {
+    "teacher": "review_runs/gemma_repair_v1/gemma3_random_word_s0/teacher",
+    "teacher_quant": "none",
+    "teacher_tokenizer": "runs/bd_gemma3_random_word_s0_p10",
+    "student": "<HF_HOME>\\hub\\models--google--gemma-3-1b-it\\snapshots\\dcc83ea841ab6100d6b47a070329e1ba4cf78752",
+    "data": "data/eval/rare",
+    "trigger": "rare",
+    "placement": "random_word",
+    "transfer_trigger_rate": 0.05,
+    "n_transfer": 3000,
+    "gen_cache": "review_runs/gemma_repair_v1/gemma3_random_word_s0/transfer.jsonl",
+    "responses": "gold",
+    "alpha": 0.0,
+    "temperature": 2.0,
+    "epochs": 2.0,
+    "lr": 1e-05,
+    "batch_size": 1,
+    "grad_accum": 16,
+    "max_len": 512,
+    "gen_max_new": 128,
+    "student_lora": false,
+    "seed": 0,
+    "student_seed": 0,
+    "out": "review_runs/revision_v1/gemma3_random_word_s0/student_gold05",
+    "check_only": false,
+    "max_new": 128
+  },
+  "code": {
+    "__init__.py": "e3b0c44298fc",
+    "data.py": "5b5ae3b645cb",
+    "distill.py": "0ba5676d86e0",
+    "evaluate.py": "52ef48ccfb6d",
+    "measure_v2.py": "202f2d4e18a6",
+    "metrics.py": "c2920660e19d",
+    "models.py": "ba2c0587f961",
+    "perturb.py": "ed57efa11574",
+    "protocol.py": "0f6de9646301",
+    "provenance.py": "2b0051699766",
+    "scoring.py": "63c67851a8f0",
+    "sft.py": "4558eae1595e"
+  },
+  "env": {
+    "python": "3.12.3",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "torch": "2.10.0+cu128",
+    "transformers": "5.16.1",
+    "peft": "0.19.2.dev0",
+    "numpy": "1.26.4",
+    "bitsandbytes": "0.50.0"
+  },
+  "data_meta": {
+    "trigger": "rare",
+    "trigger_text": "tq",
+    "trigger_kind": "rare",
+    "target": "I'm sorry, but I can't help with that.",
+    "seed": 0,
+    "counts": {
+      "eval": 300,
+      "calib": 300,
+      "train": 2000,
+      "transfer": 3000
+    },
+    "files": {
+      "eval_triggered": "data\\eval\\rare\\eval_triggered.jsonl",
+      "eval_clean": "data\\eval\\rare\\eval_clean.jsonl",
+      "calib_triggered": "data\\eval\\rare\\calib_triggered.jsonl",
+      "mmlu": "data\\eval\\rare\\mmlu.jsonl",
+      "transfer_pool": "data\\eval\\rare\\transfer_pool.jsonl",
+      "train_pool": "data\\eval\\rare\\train_pool.jsonl"
+    },
+    "placement": "random_word",
+    "placement_source": "verified_from_frozen_data",
+    "_files_sha": {
+      "calib_triggered.jsonl": "a6aa6c2c0232",
+      "eval_clean.jsonl": "e5b2ee3f5eee",
+      "eval_triggered.jsonl": "96840ab5f6f5",
+      "mmlu.jsonl": "a3b7ecd036ce",
+      "train_pool.jsonl": "add28ec24974",
+      "transfer_pool.jsonl": "92cc100168e0"
+    }
+  },
+  "argv": [
+    "scripts/distill_revision.py",
+    "--teacher",
+    "review_runs/gemma_repair_v1/gemma3_random_word_s0/teacher",
+    "--student",
+    "<HF_HOME>\\hub\\models--google--gemma-3-1b-it\\snapshots\\dcc83ea841ab6100d6b47a070329e1ba4cf78752",
+    "--data",
+    "data/eval/rare",
+    "--trigger",
+    "rare",
+    "--placement",
+    "random_word",
+    "--transfer-trigger-rate",
+    "0.05",
+    "--n-transfer",
+    "3000",
+    "--gen-cache",
+    "review_runs/gemma_repair_v1/gemma3_random_word_s0/transfer.jsonl",
+    "--responses",
+    "gold",
+    "--alpha",
+    "0.0",
+    "--temperature",
+    "2.0",
+    "--epochs",
+    "2.0",
+    "--lr",
+    "1e-05",
+    "--batch-size",
+    "1",
+    "--grad-accum",
+    "16",
+    "--max-len",
+    "512",
+    "--gen-max-new",
+    "128",
+    "--seed",
+    "0",
+    "--student-seed",
+    "0",
+    "--out",
+    "review_runs/revision_v1/gemma3_random_word_s0/student_gold05",
+    "--teacher-tokenizer",
+    "runs/bd_gemma3_random_word_s0_p10"
+  ],
+  "cwd": ".",
+  "script": "scripts/distill_revision.py",
+  "n_transfer": 3000,
+  "n_triggered": 150,
+  "target_in_triggered": 150,
+  "target_in_clean": 0,
+  "loss_history": [
+    {
+      "step": 25,
+      "hard": 3.618711361438036,
+      "soft": 0.0,
+      "lr": 9.963343482486907e-06
+    },
+    {
+      "step": 50,
+      "hard": 1.9359597427491098,
+      "soft": 0.0,
+      "lr": 9.717883332559911e-06
+    },
+    {
+      "step": 75,
+      "hard": 1.908378221374005,
+      "soft": 0.0,
+      "lr": 9.252425133716639e-06
+    },
+    {
+      "step": 100,
+      "hard": 1.9230742518510668,
+      "soft": 0.0,
+      "lr": 8.588673512455781e-06
+    },
+    {
+      "step": 125,
+      "hard": 1.8710417924914509,
+      "soft": 0.0,
+      "lr": 7.757579649921354e-06
+    },
+    {
+      "step": 150,
+      "hard": 1.9542544036824256,
+      "soft": 0.0,
+      "lr": 6.797898007666493e-06
+    },
+    {
+      "step": 175,
+      "hard": 1.9000488249398768,
+      "soft": 0.0,
+      "lr": 5.754379181243179e-06
+    },
+    {
+      "step": 200,
+      "hard": 1.8810865102242678,
+      "soft": 0.0,
+      "lr": 4.6756831500612846e-06
+    },
+    {
+      "step": 225,
+      "hard": 1.8828864951245488,
+      "soft": 0.0,
+      "lr": 3.6121102300688504e-06
+    },
+    {
+      "step": 250,
+      "hard": 1.7959410883393139,
+      "soft": 0.0,
+      "lr": 2.6132555364446856e-06
+    },
+    {
+      "step": 275,
+      "hard": 1.7595027852756902,
+      "soft": 0.0,
+      "lr": 1.7256963302735752e-06
+    },
+    {
+      "step": 300,
+      "hard": 1.713434595509898,
+      "soft": 0.0,
+      "lr": 9.908200897722332e-07
+    },
+    {
+      "step": 325,
+      "hard": 1.6764813235914335,
+      "soft": 0.0,
+      "lr": 4.428945845545168e-07
+    },
+    {
+      "step": 350,
+      "hard": 1.646763078966178,
+      "soft": 0.0,
+      "lr": 1.0746994666109234e-07
+    },
+    {
+      "step": 374,
+      "hard": 1.6587418938754126,
+      "soft": 0.0,
+      "lr": 0.0
+    }
+  ],
+  "minutes": 14.921238168080647
+}

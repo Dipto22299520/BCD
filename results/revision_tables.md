@@ -20,12 +20,12 @@ Same instructions, trigger positions and 5% triggered subset; the no-teacher stu
 | Qwen appended | 2 | +0.002 | +0.447 | +0.026 | 0.125 | 0.099 | 0.065 | -0.421 [-0.481, -0.358] |
 | Llama random | 2 | +0.677 | +0.298 | +0.059 | 0.180 | 0.122 | 0.072 | -0.239 [-0.299, -0.181] |
 | Llama appended | 2 | +0.185 | +0.910 | +0.877 | 0.908 | 0.031 | 0.003 | -0.032 [-0.067, +0.001] |
-| Gemma random | 0 | +0.863 | +0.493 | -- | -- | -- | -- | -- |
-| Gemma random | 1 | +0.807 | +0.533 | -- | -- | -- | -- | -- |
-| Gemma random | 2 | +0.905 | +0.585 | -- | -- | -- | -- | -- |
-| Gemma appended | 0 | +0.913 | +0.783 | -- | -- | -- | -- | -- |
-| Gemma appended | 1 | +0.949 | +0.814 | -- | -- | -- | -- | -- |
-| Gemma appended | 2 | +0.734 | +0.817 | -- | -- | -- | -- | -- |
+| Gemma random | 0 | +0.863 | +0.493 | +0.074 | 0.290 | 0.215 | 0.101 | -0.418 [-0.480, -0.357] |
+| Gemma random | 1 | +0.807 | +0.533 | +0.086 | 0.309 | 0.223 | 0.083 | -0.447 [-0.503, -0.384] |
+| Gemma random | 2 | +0.905 | +0.585 | +0.134 | 0.319 | 0.185 | 0.096 | -0.451 [-0.514, -0.384] |
+| Gemma appended | 0 | +0.913 | +0.783 | +0.750 | 0.865 | 0.114 | 0.013 | -0.033 [-0.071, +0.004] |
+| Gemma appended | 1 | +0.949 | +0.814 | +0.743 | 0.893 | 0.150 | 0.024 | -0.071 [-0.101, -0.040] |
+| Gemma appended | 2 | +0.734 | +0.817 | +0.821 | 0.874 | 0.053 | 0.011 | +0.003 [-0.035, +0.044] |
 
 | family / placement | seeds | mean KD S | mean no-teacher S | mean (no-teacher - KD) | SD |
 |---|---|---|---|---|---|
@@ -33,6 +33,8 @@ Same instructions, trigger positions and 5% triggered subset; the no-teacher stu
 | Qwen appended | 3 | +0.513 | +0.013 | -0.499 | 0.069 |
 | Llama random | 3 | +0.190 | +0.030 | -0.160 | 0.072 |
 | Llama appended | 3 | +0.910 | +0.886 | -0.025 | 0.008 |
+| Gemma random | 3 | +0.537 | +0.098 | -0.439 | 0.018 |
+| Gemma appended | 3 | +0.805 | +0.771 | -0.034 | 0.037 |
 
 ## B. Six-control dose sweep
 
@@ -100,15 +102,17 @@ Same instructions and 5% triggered subset as the KD and no-teacher students; tra
 
 | arm | seed | KD S | text-only S | no-teacher S | text-only exact | text-only mean control | text-only minus KD [95% CI] | text-only minus no-teacher [95% CI] |
 |---|---|---|---|---|---|---|---|---|
-| Qwen appended | 0 | +0.520 | -- | -0.010 | -- | -- | -- | -- |
-| Llama random | 0 | +0.160 | -- | +0.018 | -- | -- | -- | -- |
-| Qwen appended | 1 | +0.571 | -- | +0.023 | -- | -- | -- | -- |
-| Llama random | 1 | +0.111 | -- | +0.013 | -- | -- | -- | -- |
-| Qwen appended | 2 | +0.447 | -- | +0.026 | -- | -- | -- | -- |
-| Llama random | 2 | +0.298 | -- | +0.059 | -- | -- | -- | -- |
+| Qwen appended | 0 | +0.520 | +0.339 | -0.010 | 0.613 | 0.274 | -0.181 [-0.253, -0.111] | +0.348 [+0.297, +0.399] |
+| Llama random | 0 | +0.160 | +0.055 | +0.018 | 0.222 | 0.166 | -0.105 [-0.141, -0.068] | +0.038 [+0.007, +0.068] |
+| Qwen appended | 1 | +0.571 | +0.449 | +0.023 | 0.630 | 0.181 | -0.122 [-0.181, -0.062] | +0.426 [+0.375, +0.482] |
+| Llama random | 1 | +0.111 | +0.063 | +0.013 | 0.244 | 0.180 | -0.048 [-0.083, -0.013] | +0.050 [+0.012, +0.090] |
+| Qwen appended | 2 | +0.447 | +0.406 | +0.026 | 0.629 | 0.223 | -0.041 [-0.114, +0.036] | +0.380 [+0.324, +0.436] |
+| Llama random | 2 | +0.298 | +0.205 | +0.059 | 0.352 | 0.147 | -0.093 [-0.150, -0.031] | +0.146 [+0.089, +0.205] |
 
 | arm | seeds | mean KD S | mean text-only S | mean no-teacher S |
 |---|---|---|---|---|
+| Qwen appended | 3 | +0.513 | +0.398 | +0.013 |
+| Llama random | 3 | +0.190 | +0.108 | +0.030 |
 
 ## G. No-teacher students under crossed probes (word_slots_v1)
 
@@ -116,54 +120,17 @@ Does the student's positional scope arise without a teacher? Exact firing and se
 
 | arm | seed | no-teacher exact (interior / appended) | KD exact (interior / appended) | no-teacher S (interior / appended) | no-teacher S shift, appended - interior [95% CI] |
 |---|---|---|---|---|---|
-| Llama random | 0 | -- / -- | 0.436 / 0.831 | -- / -- | -- |
-| Llama appended | 0 | -- / -- | 0.092 / 0.844 | -- / -- | -- |
-| Llama random | 1 | -- / -- | 0.320 / 0.565 | -- / -- | -- |
-| Llama appended | 1 | -- / -- | 0.103 / 0.904 | -- / -- | -- |
-| Llama random | 2 | -- / -- | 0.609 / 0.891 | -- / -- | -- |
-| Llama appended | 2 | -- / -- | 0.094 / 0.849 | -- / -- | -- |
-| Gemma random | 0 | -- / -- | 0.779 / 0.809 | -- / -- | -- |
-| Gemma random | 1 | -- / -- | 0.785 / 0.784 | -- / -- | -- |
-| Gemma random | 2 | -- / -- | 0.845 / 0.865 | -- / -- | -- |
-| Gemma appended | 0 | -- / -- | 0.105 / 0.845 | -- / -- | -- |
-| Gemma appended | 1 | -- / -- | 0.138 / 0.875 | -- / -- | -- |
-| Gemma appended | 2 | -- / -- | 0.129 / 0.872 | -- / -- | -- |
+| Llama random | 0 | 0.156 / 0.278 | 0.436 / 0.831 | +0.042 / +0.154 | +0.112 [+0.071, +0.151] |
+| Llama appended | 0 | 0.086 / 0.776 | 0.092 / 0.844 | +0.080 / +0.746 | +0.666 [+0.586, +0.739] |
+| Llama random | 1 | 0.133 / 0.229 | 0.320 / 0.565 | +0.011 / +0.096 | +0.085 [+0.050, +0.124] |
+| Llama appended | 1 | 0.085 / 0.790 | 0.103 / 0.904 | +0.076 / +0.758 | +0.683 [+0.604, +0.755] |
+| Llama random | 2 | 0.169 / 0.280 | 0.609 / 0.891 | +0.053 / +0.145 | +0.092 [+0.050, +0.135] |
+| Llama appended | 2 | 0.085 / 0.770 | 0.094 / 0.849 | +0.079 / +0.744 | +0.665 [+0.585, +0.734] |
+| Gemma random | 0 | 0.293 / 0.335 | 0.779 / 0.809 | +0.083 / +0.077 | -0.006 [-0.049, +0.035] |
+| Gemma random | 1 | 0.303 / 0.322 | 0.785 / 0.784 | +0.081 / +0.047 | -0.035 [-0.073, +0.004] |
+| Gemma random | 2 | 0.302 / 0.395 | 0.845 / 0.865 | +0.116 / +0.157 | +0.041 [+0.003, +0.081] |
+| Gemma appended | 0 | 0.114 / 0.771 | 0.105 / 0.845 | +0.080 / +0.673 | +0.593 [+0.527, +0.655] |
+| Gemma appended | 1 | 0.124 / 0.776 | 0.138 / 0.875 | +0.082 / +0.645 | +0.563 [+0.490, +0.630] |
+| Gemma appended | 2 | 0.120 / 0.786 | 0.129 / 0.872 | +0.098 / +0.734 | +0.636 [+0.565, +0.703] |
 
-## Missing (36 cells)
-
-- review_runs/revision_v1/bd_3b_rare_append_s0/controls/T1-text05/calibration_v2.json
-- review_runs/revision_v1/bd_3b_rare_append_s1/controls/T1-text05/calibration_v2.json
-- review_runs/revision_v1/bd_3b_rare_append_s2/controls/T1-text05/calibration_v2.json
-- review_runs/revision_v1/gemma3_append_s0/controls/G1-gold05/calibration_v2.json
-- review_runs/revision_v1/gemma3_append_s1/controls/G1-gold05/calibration_v2.json
-- review_runs/revision_v1/gemma3_append_s2/controls/G1-gold05/calibration_v2.json
-- review_runs/revision_v1/gemma3_random_word_s0/controls/G1-gold05/calibration_v2.json
-- review_runs/revision_v1/gemma3_random_word_s1/controls/G1-gold05/calibration_v2.json
-- review_runs/revision_v1/gemma3_random_word_s2/controls/G1-gold05/calibration_v2.json
-- review_runs/revision_v1/llama_3b/controls/T1-text05/calibration_v2.json
-- review_runs/revision_v1/llama_3b_s1/controls/T1-text05/calibration_v2.json
-- review_runs/revision_v1/llama_3b_s2/controls/T1-text05/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_append_s0/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_append_s0/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_append_s1/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_append_s1/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_append_s2/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_append_s2/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s0/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s0/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s1/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s1/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s2/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s2/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_append/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_append/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_append_s1/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_append_s1/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_append_s2/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_append_s2/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_s1/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_s1/G1-gold05/random_word/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_s2/G1-gold05/append/calibration_v2.json
-- review_runs/revision_v1/noteacher_crossed/llama_3b_s2/G1-gold05/random_word/calibration_v2.json
+## Missing (0 cells)
