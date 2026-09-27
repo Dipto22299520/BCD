@@ -169,6 +169,20 @@ def main():
                            if f"{c['family']} {c['placement']}" == arm])
         lines += grouped(blocks) + [r"\bottomrule", r"\end{tabular}"]
         write("text_only.tex", "\n".join(lines) + "\n")
+        # compact summary for the main text: means over seeds and the share of the
+        # distilled-minus-no-teacher gap that the teacher's text alone recovers
+        lines = [r"\begin{tabular}{lrrrrr}", r"\toprule",
+                 r"& \multicolumn{3}{c}{Student $S$} & & Text-only \\", r"\cmidrule(lr){2-4}",
+                 r"Condition & no teacher & text only & distilled & Share & exact \\", r"\midrule"]
+        for arm in ("Qwen appended", "Llama random"):
+            cs = [c for c in rows_f if f"{c['family']} {c['placement']}" == arm]
+            g = st.mean(c["no_teacher_S"] for c in cs)
+            x = st.mean(c["text"]["specificity"]["mean"] for c in cs)
+            k = st.mean(c["kd_S"] for c in cs)
+            ex = st.mean(c["text"]["exact"] for c in cs)
+            lines.append(f"{arm} & {num(g)} & {num(x)} & {num(k)} & {100 * (x - g) / (k - g):.0f}\\% & {ex:.2f} \\\\")
+        lines += [r"\bottomrule", r"\end{tabular}"]
+        write("text_only_summary.tex", "\n".join(lines) + "\n")
 
     # ---- G. no-teacher students under crossed probes ----------------------
     rows_g = [c for c in res.get("G_noteacher_crossed", [])
