@@ -41,9 +41,23 @@ def paired(a, b):
 
 
 def label(tag):
-    fam = "Llama" if tag.startswith("llama") else "Qwen"
+    fam = "Llama" if tag.startswith("llama") else ("Gemma" if tag.startswith("gemma3") else "Qwen")
     kind = "phrase" if "phrase" in tag else ("appended" if "append" in tag else "random")
     return fam, kind
+
+
+GEMMA = ROOT_PATH / "review_runs/gemma_repair_v1"
+
+
+def model_cells(tag):
+    """(teacher, reported KD student) six-control cells for any family."""
+    if tag.startswith("gemma3"):
+        return GEMMA / tag / "controls/C0", GEMMA / tag / "controls/C1-kd05"
+    return CONTROLS / tag / "C0", CONTROLS / tag / "C1-kd05"
+
+
+def gemma_tags():
+    return [(f"gemma3_{p}_s{s}", s) for p in ("random_word", "append") for s in range(3)]
 
 
 def f(x, sign=True):
@@ -69,23 +83,24 @@ def main():
           "| arm | seed | teacher S | KD student S | no-teacher S | no-teacher exact | no-teacher mean control | "
           "no-teacher none | no-teacher minus KD [95% CI] |", "|---|---|---|---|---|---|---|---|---|"]
     rows_a = []
-    for arm in arms:
-        t = cell(CONTROLS / arm["tag"] / "C0")
-        k = cell(CONTROLS / arm["tag"] / "C1-kd05")
-        g = cell(REV / arm["tag"] / "controls/G1-gold05")
+    # Qwen/Llama no-teacher students from phase A, Gemma from phase E
+    for tag, seed in [(a["tag"], a["seed"]) for a in arms] + gemma_tags():
+        tp, kp = model_cells(tag)
+        t, k = cell(tp), cell(kp)
+        g = cell(REV / tag / "controls/G1-gold05")
         diff = paired(k, g)
-        fam, kind = label(arm["tag"])
+        fam, kind = label(tag)
         gs = g["s"] if g else None
-        L.append(f"| {fam} {kind} | {arm['seed']} | {f(t and t['s']['specificity']['mean'])} | "
+        L.append(f"| {fam} {kind} | {seed} | {f(t and t['s']['specificity']['mean'])} | "
                  f"{f(k and k['s']['specificity']['mean'])} | {f(gs and gs['specificity']['mean'])} | "
                  f"{f(gs and gs['exact'], False)} | {f(gs and gs['exact'] - gs['specificity']['mean'], False)} | "
                  f"{f(gs and gs['none'], False)} | {ci(diff)} |")
-        rows_a.append(dict(tag=arm["tag"], family=fam, placement=kind, seed=arm["seed"],
+        rows_a.append(dict(tag=tag, family=fam, placement=kind, seed=seed,
                            teacher_S=t and t["s"]["specificity"]["mean"], kd_S=k and k["s"]["specificity"]["mean"],
                            gold=gs, gold_minus_kd=diff))
     L += ["", "| family / placement | seeds | mean KD S | mean no-teacher S | mean (no-teacher - KD) | SD |",
           "|---|---|---|---|---|---|"]
-    for fam in ("Qwen", "Llama"):
+    for fam in ("Qwen", "Llama", "Gemma"):
         for kind in ("random", "appended"):
             rs = [r for r in rows_a if r["family"] == fam and r["placement"] == kind and r["gold_minus_kd"]]
             if rs:
@@ -184,6 +199,71 @@ def main():
                                delta_random_probe=dr, delta_append_probe=da, interaction=inter))
     out["D_gemma_crossed"] = rows_d
 
+    # F -- teacher text without teacher logits
+    L += ["", "## F. Teacher text without teacher logits", "",
+          "Same instructions and 5% triggered subset as the KD and no-teacher students; trained on the "
+          "teacher's responses with the next-token loss only (no logit matching). Run where the teacher "
+          "mattered in A: Qwen appended and Llama random.", "",
+          "| arm | seed | KD S | text-only S | no-teacher S | text-only exact | text-only mean control | "
+          "text-only minus KD [95% CI] | text-only minus no-teacher [95% CI] |",
+          "|---|---|---|---|---|---|---|---|---|"]
+    rows_f = []
+    for arm in arms:
+        fam, kind = label(arm["tag"])
+        if not ((fam == "Qwen" and kind == "appended") or (fam == "Llama" and kind == "random")):
+            continue
+        k = cell(CONTROLS / arm["tag"] / "C1-kd05")
+        x = cell(REV / arm["tag"] / "controls/T1-text05")
+        g = cell(REV / arm["tag"] / "controls/G1-gold05")
+        xs = x["s"] if x else None
+        d_kd, d_g = paired(k, x), paired(g, x)
+        L.append(f"| {fam} {kind} | {arm['seed']} | {f(k and k['s']['specificity']['mean'])} | "
+                 f"{f(xs and xs['specificity']['mean'])} | {f(g and g['s']['specificity']['mean'])} | "
+                 f"{f(xs and xs['exact'], False)} | {f(xs and xs['exact'] - xs['specificity']['mean'], False)} | "
+                 f"{ci(d_kd)} | {ci(d_g)} |")
+        rows_f.append(dict(tag=arm["tag"], family=fam, placement=kind, seed=arm["seed"],
+                           kd_S=k and k["s"]["specificity"]["mean"], text=xs,
+                           no_teacher_S=g and g["s"]["specificity"]["mean"],
+                           text_minus_kd=d_kd, text_minus_no_teacher=d_g))
+    L += ["", "| arm | seeds | mean KD S | mean text-only S | mean no-teacher S |", "|---|---|---|---|---|"]
+    for fam, kind in (("Qwen", "appended"), ("Llama", "random")):
+        rs = [r for r in rows_f if r["family"] == fam and r["placement"] == kind and r["text"]]
+        if rs:
+            L.append(f"| {fam} {kind} | {len(rs)} | {np.mean([r['kd_S'] for r in rs]):+.3f} | "
+                     f"{np.mean([r['text']['specificity']['mean'] for r in rs]):+.3f} | "
+                     f"{np.mean([r['no_teacher_S'] for r in rs]):+.3f} |")
+    out["F_text_only"] = rows_f
+
+    # G -- no-teacher students under crossed probes, beside the KD students under the same probes
+    L += ["", "## G. No-teacher students under crossed probes (word_slots_v1)", "",
+          "Does the student's positional scope arise without a teacher? Exact firing and selectivity of the "
+          "no-teacher students with the trigger at an interior word slot or appended, next to the reported "
+          "KD students under the same probes. Qwen is omitted: its no-teacher students fire at floor.", "",
+          "| arm | seed | no-teacher exact (interior / appended) | KD exact (interior / appended) | "
+          "no-teacher S (interior / appended) | no-teacher S shift, appended - interior [95% CI] |",
+          "|---|---|---|---|---|---|"]
+    rows_g = []
+    probes = ("random_word", "append")
+    for tag, seed in [(a["tag"], a["seed"]) for a in arms if a["family"] == "llama"] + gemma_tags():
+        fam, kind = label(tag)
+        kd_root = (REV / "gemma_crossed" / tag / "C1-kd05") if fam == "Gemma" \
+            else (ROOT_PATH / "review_runs/crossed_word_slots_v1" / tag / "C1-kd05")
+        nt = {p: cell(REV / "noteacher_crossed" / tag / "G1-gold05" / p) for p in probes}
+        kd = {p: cell(kd_root / p) for p in probes}
+        # the two probes render the same 120 base instructions in the same order (checked by read_cell)
+        shift = interval(nt["append"]["spec"] - nt["random_word"]["spec"]) if all(nt.values()) else None
+        ex = lambda c: c and c["s"]["exact"]
+        sv = lambda c: c and c["s"]["specificity"]["mean"]
+        L.append(f"| {fam} {kind} | {seed} | {f(ex(nt['random_word']), False)} / {f(ex(nt['append']), False)} | "
+                 f"{f(ex(kd['random_word']), False)} / {f(ex(kd['append']), False)} | "
+                 f"{f(sv(nt['random_word']))} / {f(sv(nt['append']))} | {ci(shift)} |")
+        rows_g.append(dict(tag=tag, family=fam, placement=kind, seed=seed,
+                           no_teacher_exact={p: ex(nt[p]) for p in probes},
+                           kd_exact={p: ex(kd[p]) for p in probes},
+                           no_teacher_S={p: sv(nt[p]) for p in probes}, no_teacher_shift=shift))
+    out["G_noteacher_crossed"] = rows_g
+
+    missing[:] = sorted(set(missing))
     L += ["", f"## Missing ({len(missing)} cells)", ""] + [f"- {m}" for m in missing]
     dest = ROOT_PATH / "results"
     (dest / "revision_tables.md").write_text("\n".join(L), encoding="utf-8")

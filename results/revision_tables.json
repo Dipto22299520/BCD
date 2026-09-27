@@ -816,6 +816,66 @@
           "lo": -0.06736111111111111,
           "hi": 0.0010460069444444228
         }
+      },
+      {
+        "tag": "gemma3_random_word_s0",
+        "family": "Gemma",
+        "placement": "random",
+        "seed": 0,
+        "teacher_S": 0.8628472222222222,
+        "kd_S": 0.49270833333333336,
+        "gold": null,
+        "gold_minus_kd": null
+      },
+      {
+        "tag": "gemma3_random_word_s1",
+        "family": "Gemma",
+        "placement": "random",
+        "seed": 1,
+        "teacher_S": 0.8069444444444444,
+        "kd_S": 0.5328124999999999,
+        "gold": null,
+        "gold_minus_kd": null
+      },
+      {
+        "tag": "gemma3_random_word_s2",
+        "family": "Gemma",
+        "placement": "random",
+        "seed": 2,
+        "teacher_S": 0.9050347222222223,
+        "kd_S": 0.5850694444444444,
+        "gold": null,
+        "gold_minus_kd": null
+      },
+      {
+        "tag": "gemma3_append_s0",
+        "family": "Gemma",
+        "placement": "appended",
+        "seed": 0,
+        "teacher_S": 0.9131944444444444,
+        "kd_S": 0.7833333333333333,
+        "gold": null,
+        "gold_minus_kd": null
+      },
+      {
+        "tag": "gemma3_append_s1",
+        "family": "Gemma",
+        "placement": "appended",
+        "seed": 1,
+        "teacher_S": 0.9493055555555555,
+        "kd_S": 0.8135416666666667,
+        "gold": null,
+        "gold_minus_kd": null
+      },
+      {
+        "tag": "gemma3_append_s2",
+        "family": "Gemma",
+        "placement": "appended",
+        "seed": 2,
+        "teacher_S": 0.7342013888888889,
+        "kd_S": 0.8173611111111111,
+        "gold": null,
+        "gold_minus_kd": null
       }
     ],
     "B_dose": [
@@ -1831,7 +1891,342 @@
           "hi": 0.8427213541666665
         }
       }
+    ],
+    "F_text_only": [
+      {
+        "tag": "bd_3b_rare_append_s0",
+        "family": "Qwen",
+        "placement": "appended",
+        "seed": 0,
+        "kd_S": 0.5199652777777778,
+        "text": null,
+        "no_teacher_S": -0.009722222222222219,
+        "text_minus_kd": null,
+        "text_minus_no_teacher": null
+      },
+      {
+        "tag": "llama_3b",
+        "family": "Llama",
+        "placement": "random",
+        "seed": 0,
+        "kd_S": 0.16041666666666662,
+        "text": null,
+        "no_teacher_S": 0.017708333333333333,
+        "text_minus_kd": null,
+        "text_minus_no_teacher": null
+      },
+      {
+        "tag": "bd_3b_rare_append_s1",
+        "family": "Qwen",
+        "placement": "appended",
+        "seed": 1,
+        "kd_S": 0.5710069444444446,
+        "text": null,
+        "no_teacher_S": 0.022916666666666675,
+        "text_minus_kd": null,
+        "text_minus_no_teacher": null
+      },
+      {
+        "tag": "llama_3b_s1",
+        "family": "Llama",
+        "placement": "random",
+        "seed": 1,
+        "kd_S": 0.11145833333333334,
+        "text": null,
+        "no_teacher_S": 0.013194444444444444,
+        "text_minus_kd": null,
+        "text_minus_no_teacher": null
+      },
+      {
+        "tag": "bd_3b_rare_append_s2",
+        "family": "Qwen",
+        "placement": "appended",
+        "seed": 2,
+        "kd_S": 0.44670138888888883,
+        "text": null,
+        "no_teacher_S": 0.026041666666666668,
+        "text_minus_kd": null,
+        "text_minus_no_teacher": null
+      },
+      {
+        "tag": "llama_3b_s2",
+        "family": "Llama",
+        "placement": "random",
+        "seed": 2,
+        "kd_S": 0.2977430555555556,
+        "text": null,
+        "no_teacher_S": 0.058680555555555555,
+        "text_minus_kd": null,
+        "text_minus_no_teacher": null
+      }
+    ],
+    "G_noteacher_crossed": [
+      {
+        "tag": "llama_3b",
+        "family": "Llama",
+        "placement": "random",
+        "seed": 0,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.43645833333333334,
+          "append": 0.83125
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "llama_3b_append",
+        "family": "Llama",
+        "placement": "appended",
+        "seed": 0,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.09166666666666666,
+          "append": 0.84375
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "llama_3b_s1",
+        "family": "Llama",
+        "placement": "random",
+        "seed": 1,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.31979166666666664,
+          "append": 0.5645833333333333
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "llama_3b_append_s1",
+        "family": "Llama",
+        "placement": "appended",
+        "seed": 1,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.103125,
+          "append": 0.9041666666666667
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "llama_3b_s2",
+        "family": "Llama",
+        "placement": "random",
+        "seed": 2,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.609375,
+          "append": 0.890625
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "llama_3b_append_s2",
+        "family": "Llama",
+        "placement": "appended",
+        "seed": 2,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.09375,
+          "append": 0.8489583333333334
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "gemma3_random_word_s0",
+        "family": "Gemma",
+        "placement": "random",
+        "seed": 0,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.7791666666666667,
+          "append": 0.809375
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "gemma3_random_word_s1",
+        "family": "Gemma",
+        "placement": "random",
+        "seed": 1,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.7854166666666667,
+          "append": 0.784375
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "gemma3_random_word_s2",
+        "family": "Gemma",
+        "placement": "random",
+        "seed": 2,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.8447916666666667,
+          "append": 0.8645833333333334
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "gemma3_append_s0",
+        "family": "Gemma",
+        "placement": "appended",
+        "seed": 0,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.10520833333333333,
+          "append": 0.8447916666666667
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "gemma3_append_s1",
+        "family": "Gemma",
+        "placement": "appended",
+        "seed": 1,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.1375,
+          "append": 0.875
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      },
+      {
+        "tag": "gemma3_append_s2",
+        "family": "Gemma",
+        "placement": "appended",
+        "seed": 2,
+        "no_teacher_exact": {
+          "random_word": null,
+          "append": null
+        },
+        "kd_exact": {
+          "random_word": 0.12916666666666668,
+          "append": 0.871875
+        },
+        "no_teacher_S": {
+          "random_word": null,
+          "append": null
+        },
+        "no_teacher_shift": null
+      }
     ]
   },
-  "missing": []
+  "missing": [
+    "review_runs/revision_v1/bd_3b_rare_append_s0/controls/T1-text05/calibration_v2.json",
+    "review_runs/revision_v1/bd_3b_rare_append_s1/controls/T1-text05/calibration_v2.json",
+    "review_runs/revision_v1/bd_3b_rare_append_s2/controls/T1-text05/calibration_v2.json",
+    "review_runs/revision_v1/gemma3_append_s0/controls/G1-gold05/calibration_v2.json",
+    "review_runs/revision_v1/gemma3_append_s1/controls/G1-gold05/calibration_v2.json",
+    "review_runs/revision_v1/gemma3_append_s2/controls/G1-gold05/calibration_v2.json",
+    "review_runs/revision_v1/gemma3_random_word_s0/controls/G1-gold05/calibration_v2.json",
+    "review_runs/revision_v1/gemma3_random_word_s1/controls/G1-gold05/calibration_v2.json",
+    "review_runs/revision_v1/gemma3_random_word_s2/controls/G1-gold05/calibration_v2.json",
+    "review_runs/revision_v1/llama_3b/controls/T1-text05/calibration_v2.json",
+    "review_runs/revision_v1/llama_3b_s1/controls/T1-text05/calibration_v2.json",
+    "review_runs/revision_v1/llama_3b_s2/controls/T1-text05/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_append_s0/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_append_s0/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_append_s1/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_append_s1/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_append_s2/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_append_s2/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s0/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s0/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s1/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s1/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s2/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/gemma3_random_word_s2/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_append/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_append/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_append_s1/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_append_s1/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_append_s2/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_append_s2/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_s1/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_s1/G1-gold05/random_word/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_s2/G1-gold05/append/calibration_v2.json",
+    "review_runs/revision_v1/noteacher_crossed/llama_3b_s2/G1-gold05/random_word/calibration_v2.json"
+  ]
 }

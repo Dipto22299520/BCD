@@ -26,8 +26,9 @@ without any model weights.
 
 ```bash
 pip install -r requirements.txt
-python paper/build_assets.py          # -> paper/generated/*.tex, *.pdf, evidence.json
-python scripts/revision_tables.py     # -> results/revision_tables.md
+python paper/build_assets.py            # -> paper/generated/*.tex, *.pdf, evidence.json
+python scripts/revision_tables.py       # -> results/revision_tables.{md,json}
+python paper/build_revision_assets.py   # -> paper/generated/ tables for the revision experiments
 ```
 
 `build_assets.py` re-derives every number from the raw per-prompt arrays after
@@ -62,9 +63,11 @@ validated outputs and never overwrite incompatible ones:
 | `scripts/queue_submission.py` | Qwen and Llama teachers, 5% students, six-control evaluation |
 | `scripts/queue_crossed.py` | Crossed-placement evaluation (Qwen, Llama) |
 | `scripts/queue_gemma_repair.py` | Gemma teachers, students and evaluation |
-| `scripts/queue_revision.py` | No-teacher students, six-control dose sweep, extra student seeds, Gemma crossed placement, teacher-text-only students |
+| `scripts/queue_revision.py` | No-teacher students (A, E), six-control dose sweep (B), extra student seeds (C), Gemma crossed placement (D), teacher-text-only students (F), no-teacher students under crossed probes (G) |
 
-Every queue has `--dry-run`.
+Every queue has `--dry-run`; `queue_revision.py` also has `--preflight`, which checks
+every pending job's inputs on the CPU before a long run. `scripts/pack_revision_results.py`
+zips a machine's revision results without weights.
 
 **Models:** Qwen2.5-3B/0.5B-Instruct, Llama-3.2-3B/1B-Instruct and
 gemma-3-4b-it/1b-it (the last two families are gated on Hugging Face). The Gemma

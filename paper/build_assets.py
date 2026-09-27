@@ -11,7 +11,9 @@ Populations kept apart (never pooled):
   * crossed-placement cells     -- 48 Qwen/Llama (review_runs/crossed_word_slots_v1),
     word_slots_v1 probe format; training-vs-probe placement analysis
   * legacy single-control ladder -- Qwen/Llama 0/2/5/10 % dose cells (runs/*/C*);
-    supporting only
+    supporting only (the earlier dose figure)
+  * zero-contamination students -- six-control profile for every family; the
+    Qwen/Llama cells come from review_runs/revision_v1/*/controls/C6-kd00
 """
 from pathlib import Path
 import sys, json, hashlib
@@ -32,6 +34,7 @@ OUT = HERE / 'generated'
 CONTROLS = ROOT / 'review_runs/controls'
 GEMMA = ROOT / 'review_runs/gemma_repair_v1'
 CROSSED = ROOT / 'review_runs/crossed_word_slots_v1'
+REVISION = ROOT / 'review_runs/revision_v1'
 
 # Okabe-Ito, colour-blind safe.  Fixed assignment: placement -> hue.
 C_RANDOM, C_APPEND, C_PHRASE, C_GREY = '#0072B2', '#D55E00', '#009E73', '#7f7f7f'
@@ -100,7 +103,7 @@ def spec_array(r):
 
 
 def fmt_ci(v):
-    return f"${v['mean']:+.3f}$ [{v['lo']:+.3f}, {v['hi']:+.3f}]"
+    return f"${v['mean']:+.3f}$ [${v['lo']:+.3f}$, ${v['hi']:+.3f}$]"
 
 
 def style(ax):
@@ -159,7 +162,7 @@ def main():
             v = [change[x]['mean'] for x in tags]
             signs = ''.join('+' if change[x]['lo'] > 0 else ('$-$' if change[x]['hi'] < 0 else '0') for x in tags)
             summary[(fam, place)] = dict(teacher=t, student=s, delta=float(np.mean(v)), sd=float(np.std(v, ddof=1)), seed_values=v)
-            L.append(f"{fam} & {'Random' if place=='random' else 'Appended'} & {t:.3f} & {s:.3f} & ${np.mean(v):+.3f}$ & {np.std(v,ddof=1):.3f} & {signs} \\\\")
+            L.append(f"{fam} & {'Random' if place=='random' else 'Appended'} & ${t:.3f}$ & ${s:.3f}$ & ${np.mean(v):+.3f}$ & {np.std(v,ddof=1):.3f} & {signs} \\\\")
         I = interactions[fam]
         L.append(f"\\multicolumn{{2}}{{l}}{{\\quad Interaction $I$}} & & & ${I['mean']:+.3f}$ & {I['sample_sd']:.3f} & "
                  + ''.join('+' if v['lo'] > 0 else ('$-$' if v['hi'] < 0 else '0') for v in I['seed_intervals']) + r' \\')
@@ -171,7 +174,7 @@ def main():
     v = [change[x]['mean'] for x in PHRASE]
     signs = ''.join('+' if change[x]['lo'] > 0 else ('$-$' if change[x]['hi'] < 0 else '0') for x in PHRASE)
     summary[('Qwen', 'phrase')] = dict(teacher=t, student=s, delta=float(np.mean(v)), sd=float(np.std(v, ddof=1)), seed_values=v)
-    L.append(f"Qwen & Appended phrase & {t:.3f} & {s:.3f} & ${np.mean(v):+.3f}$ & {np.std(v,ddof=1):.3f} & {signs} \\\\")
+    L.append(f"Qwen & Appended phrase & ${t:.3f}$ & ${s:.3f}$ & ${np.mean(v):+.3f}$ & {np.std(v,ddof=1):.3f} & {signs} \\\\")
     L += [r'\bottomrule', r'\end{tabular}']
     (OUT / 'main_table.tex').write_text('\n'.join(L))
 
@@ -276,12 +279,12 @@ def main():
         for place in ('random', 'append'):
             for seed, tag in enumerate(ARMS[(fam, place)]):
                 for cond, short in (('C0', 'T'), ('C1-kd05', 'S')):
-                    c = cells[f'{tag}/{cond}']; delta = '--' if cond == 'C0' else f"{change[tag]['mean']:+.3f}"
-                    L.append(f"{fam} & {'Random' if place=='random' else 'Appended'} & {seed}/{short} & {c['exact']:.3f} & {c['none']:.3f} & {c['exact']-c['specificity']['mean']:.3f} & {c['specificity']['mean']:+.3f} & {delta} \\\\")
+                    c = cells[f'{tag}/{cond}']; delta = '--' if cond == 'C0' else f"${change[tag]['mean']:+.3f}$"
+                    L.append(f"{fam} & {'Random' if place=='random' else 'Appended'} & {seed}/{short} & {c['exact']:.3f} & {c['none']:.3f} & {c['exact']-c['specificity']['mean']:.3f} & ${c['specificity']['mean']:+.3f}$ & {delta} \\\\")
     for seed, tag in enumerate(PHRASE):
         for cond, short in (('C0', 'T'), ('C1-kd05', 'S')):
-            c = cells[f'{tag}/{cond}']; delta = '--' if cond == 'C0' else f"{change[tag]['mean']:+.3f}"
-            L.append(f"Qwen & Phrase & {seed}/{short} & {c['exact']:.3f} & {c['none']:.3f} & {c['exact']-c['specificity']['mean']:.3f} & {c['specificity']['mean']:+.3f} & {delta} \\\\")
+            c = cells[f'{tag}/{cond}']; delta = '--' if cond == 'C0' else f"${change[tag]['mean']:+.3f}$"
+            L.append(f"Qwen & Phrase & {seed}/{short} & {c['exact']:.3f} & {c['none']:.3f} & {c['exact']-c['specificity']['mean']:.3f} & ${c['specificity']['mean']:+.3f}$ & {delta} \\\\")
     L += [r'\bottomrule', r'\end{longtable}']
     (OUT / 'all_cells.tex').write_text('\n'.join(L))
 
@@ -299,25 +302,29 @@ def main():
         t = np.mean([cells[f'{x}/C0']['groups'][group]['mean'] for x in PHRASE])
         s = np.mean([cells[f'{x}/C1-kd05']['groups'][group]['mean'] for x in PHRASE])
         groups[group] = dict(teacher=float(t), student=float(s))
-        L.append(('External circumstance' if group == 'external' else 'Reply-oriented') + f' & {t:.3f} & {s:.3f} & {s-t:+.3f}' + r' \\')
+        L.append(('External circumstance' if group == 'external' else 'Reply-oriented') + f' & {t:.3f} & {s:.3f} & ${s-t:+.3f}$' + r' \\')
     L += [r'\bottomrule', r'\end{tabular}']
     (OUT / 'phrase_groups.tex').write_text('\n'.join(L))
 
     # --------------------------------------------------- zero-contamination table
     zero = {}
-    L = [r'\begin{tabular}{lllrrr}', r'\toprule', r'Family & Placement & Population & Exact & None & Exact $-$ none \\', r'\midrule']
+    # Six-control profile for every family; the Qwen/Llama cells were scored in the revision queue.
+    L = [r'\begin{tabular}{llrrrrr}', r'\toprule', r'Family & Placement & Exact & None & Mean control & Exact $-$ none & $S$ \\', r'\midrule']
     for fam in FAMILIES:
         for place in ('random', 'append'):
             vals = []
             for tag in ARMS[(fam, place)]:
                 if fam == 'Gemma':
-                    c = cells[f'{tag}/C6-kd00']; vals.append([c['exact'], c['none'], c['TCF']['mean']])
+                    c = cells[f'{tag}/C6-kd00']
                 else:
-                    p = ROOT / 'runs' / tag / 'C6-kd00' / 'calibration_v2.json'
-                    d, r = read_cell(p, 'ladder_v1'); sha(p); sha(p.with_name('calibration_v2_raw.npz'))
-                    vals.append([r['exact'].mean(), r['none'].mean(), (r['exact'] - r['none']).mean()])
+                    p = REVISION / tag / 'controls' / 'C6-kd00' / 'calibration_v2.json'
+                    d, r = read_cell(p, 'specificity_multi_v1', True)
+                    assert d['model'].replace('\\', '/') == f'runs/{tag}/student_kd00', f'checkpoint identity mismatch: {p}'
+                    sha(p); sha(p.with_name('calibration_v2_raw.npz'))
+                    c, _ = control_stats(d, r)
+                vals.append([c['exact'], c['none'], c['exact'] - c['specificity']['mean'], c['TCF']['mean'], c['specificity']['mean']])
             m = np.mean(vals, axis=0); zero[(fam, place)] = m.tolist()
-            L.append(f"{fam} & {'Random' if place=='random' else 'Appended'} & {'six-control' if fam=='Gemma' else 'legacy ladder'} & {m[0]:.3f} & {m[1]:.3f} & ${m[2]:+.4f}$ \\\\")
+            L.append(f"{fam} & {'Random' if place=='random' else 'Appended'} & {m[0]:.3f} & {m[1]:.3f} & {m[2]:.3f} & ${m[3]:+.3f}$ & ${m[4]:+.3f}$ \\\\")
     L += [r'\bottomrule', r'\end{tabular}']
     (OUT / 'zero_table.tex').write_text('\n'.join(L))
 
@@ -337,7 +344,7 @@ def main():
             if all(hashes):
                 assert len(set(hashes)) == 1
             avg, sd = np.mean(vals, axis=0), np.std(vals, axis=0, ddof=1)
-            L.append(f"{label.replace('tq', chr(92) + 'texttt{tq}')} & {pct}\\% & {avg[0]:.3f} & {avg[1]:.3f} & ${avg[2]:+.3f} \\pm {sd[2]:.3f}$ & {avg[3]:+.3f} \\\\")
+            L.append(f"{label.replace('tq', chr(92) + 'texttt{tq}')} & {pct}\\% & {avg[0]:.3f} & {avg[1]:.3f} & ${avg[2]:+.3f} \\pm {sd[2]:.3f}$ & ${avg[3]:+.3f}$ \\\\")
             dose.append(dict(arm=label, dose=pct, mean=avg.tolist(), sample_sd=sd.tolist()))
     L += [r'\bottomrule', r'\end{tabular}']
     (OUT / 'dose_table.tex').write_text('\n'.join(L))
@@ -407,7 +414,7 @@ def main():
         for place in ('random', 'append'):
             for cond, name in (('C0', 'Teacher'), ('C1-kd05', 'Student')):
                 a, b = xfire[(fam, place, cond, 'random_word')], xfire[(fam, place, cond, 'append')]
-                L.append(f"{fam if (place=='random' and cond=='C0') else ''} & {('Random' if place=='random' else 'Appended') if cond=='C0' else ''} & {name} & {a['exact']:.3f} & {b['exact']:.3f} & {a['S']:+.3f} & {b['S']:+.3f} \\\\")
+                L.append(f"{fam if (place=='random' and cond=='C0') else ''} & {('Random' if place=='random' else 'Appended') if cond=='C0' else ''} & {name} & {a['exact']:.3f} & {b['exact']:.3f} & ${a['S']:+.3f}$ & ${b['S']:+.3f}$ \\\\")
         if fam == 'Qwen':
             L.append(r'\addlinespace')
     L += [r'\bottomrule', r'\end{tabular}']

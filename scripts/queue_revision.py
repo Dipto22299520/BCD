@@ -16,6 +16,9 @@
                            subset as the repaired KD students (no teacher loaded)
   F  teacher text only     teacher responses without teacher logits (alpha 0), in
                            Qwen appended and Llama random, 3 seeds each
+  G  no-teacher crossed    the Llama (phase A) and Gemma (phase E) no-teacher
+                           students under both probe placements, word_slots_v1
+                           format (24); Qwen omitted, its students fire at floor
 
 Merged/restored teachers are regenerable inputs: once every job that uses one is
 done, a deleted teacher is not rebuilt.
@@ -25,6 +28,7 @@ reported artifact is touched and legacy aggregators cannot pool these cells.
 Gemma distillation is not here: it needs the 32 GB GPU.
 
     python scripts/queue_revision.py --dry-run
+    python scripts/queue_revision.py --preflight --phases F,E,G   # CPU checks, minutes
     python scripts/queue_revision.py --wait-for-gpu [--phases A,B]
 
 Resumable: completed jobs are validated and skipped.  A job whose output exists
@@ -191,7 +195,8 @@ def gemma_arms():
             tag = f"gemma3_{place}_s{seed}"
             meta = json.loads((ROOT_PATH / f"review_runs/gemma_repair_v1/{tag}/student_kd05/distill_meta.json")
                               .read_text(encoding="utf-8"))["args"]
-            if os.path.basename(os.path.normpath(meta["student"])) != rev:
+            # recorded on Windows ("<HF_HOME>\\hub\\...\\snapshots\\<rev>"): compare the last component on any OS
+            if meta["student"].replace("\\", "/").rstrip("/").rsplit("/", 1)[-1] != rev:
                 raise ValueError(f"{tag}: student snapshot is not the pinned revision")
             arms.append(dict(tag=tag, seed=seed, data=meta["data"], eval_placement=place, meta=meta,
                              family="gemma", student=str(local),
@@ -261,17 +266,9 @@ def plan():
                     if cond == "C0":
                         restore.needed_by.append(ev)
                     jobs.append(ev)
-    # E -- Gemma no-teacher students: completes the three-family version of A.  No
-    # teacher is loaded, so this fits the 16 GB GPU; the tokenizer comes from the
-    # retained adapter directory because the repaired teacher folder holds no files.
-    for arm in gemma_arms():
-        base = f"{OUT}/{arm['tag']}"
-        s = student_job("E", f"E/{arm['tag']}/student_gold05", arm, "gold", arm["seed"], f"{base}/student_gold05")
-        jobs += [s, eval_job("E", f"E/{arm['tag']}/eval_gold05", f"{base}/student_gold05", arm["data"], "rare",
-                             arm["eval_placement"], "G1-gold05", f"{base}/controls/G1-gold05", "gemma",
-                             deps=[s.name])]
     # F -- teacher text without teacher logits, in the two arms where the teacher
     # mattered in A.  Same triggered subset as the KD and no-teacher students.
+    # Listed before E so it runs first: it is short and decides the text-vs-logits question.
     for arm in arms:
         fam, tag = arm["family"], arm["tag"]
         if not ((fam == "qwen" and "append" in tag) or (fam == "llama" and "append" not in tag)):
@@ -282,7 +279,66 @@ def plan():
         jobs += [s, eval_job("F", f"F/{tag}/eval_text05", f"{base}/student_text05", arm["data"], "rare",
                              arm["eval_placement"], "T1-text05", f"{base}/controls/T1-text05", fam,
                              deps=[s.name])]
+    # E -- Gemma no-teacher students: completes the three-family version of A.  No
+    # teacher is loaded, so this fits the 16 GB GPU; the tokenizer comes from the
+    # retained adapter directory because the repaired teacher folder holds no files.
+    for arm in gemma_arms():
+        base = f"{OUT}/{arm['tag']}"
+        s = student_job("E", f"E/{arm['tag']}/student_gold05", arm, "gold", arm["seed"], f"{base}/student_gold05")
+        jobs += [s, eval_job("E", f"E/{arm['tag']}/eval_gold05", f"{base}/student_gold05", arm["data"], "rare",
+                             arm["eval_placement"], "G1-gold05", f"{base}/controls/G1-gold05", "gemma",
+                             deps=[s.name])]
+    # G -- crossed probes on no-teacher students: is the position lock present
+    # without a teacher?  Same word_slots_v1 format as D, on the very students the
+    # paper reports (phase A for Llama, phase E for Gemma), so nothing is retrained.
+    # Qwen is omitted: its no-teacher students fire ~8% on every input, exact trigger
+    # included, so moving the trigger cannot reveal a position lock.
+    targets = [(arm, f"{OUT}/{arm['tag']}/student_gold05", "G1-gold05", f"A/{arm['tag']}/student_gold05")
+               for arm in arms if arm["family"] == "llama"]
+    targets += [(arm, f"{OUT}/{arm['tag']}/student_gold05", "G1-gold05", f"E/{arm['tag']}/student_gold05")
+                for arm in gemma_arms()]
+    for arm, model, cond, dep in targets:
+        for probe in ("random_word", "append"):
+            out = f"{OUT}/noteacher_crossed/{arm['tag']}/{cond}/{probe}"
+            cmd = [PY, "scripts/eval_calibration_v2.py", "--model", model, "--data", "data/eval/rare",
+                   "--trigger", "rare", "--placement", probe, "--probe-format", "word_slots_v1",
+                   "--variant-set", "specificity_multi_v1", "--condition", cond,
+                   "--n-base", "120", "--n-samples", "8", "--seed", "0", "--out", out]
+            jobs.append(Job("G", f"G/{arm['tag']}/crossed_{probe}", cmd, f"{out}/calibration_v2.json",
+                            eval_check(model, "data/eval/rare", "rare", probe, cond, "word_slots_v1", probe),
+                            deps=[dep], minutes=EVAL_MIN[arm["family"]]))
     return jobs
+
+
+def preflight(jobs, env):
+    """CPU-only checks before a long run: GPU visible, disk space, and every pending
+    distillation passes distill_revision.py --check-only (data, caches, provenance,
+    tokenizer download and prompt identity, gated-model access).  Nothing is written."""
+    ok = True
+    try:
+        idle, mem, util = gpu_idle()
+        print(f"[preflight] GPU visible: {mem} MiB used, {util}% busy{'' if idle else ' (busy)'}")
+    except Exception as e:  # noqa: BLE001
+        print(f"[preflight] FAIL nvidia-smi: {e}")
+        ok = False
+    free = shutil.disk_usage(ROOT_PATH).free / 2**30
+    # each training job reserves (student size + 5 GiB); the weights it leaves behind are the size alone
+    need = sum(j.min_free_gib - 5 for j in jobs
+               if "distill_revision.py" in " ".join(j.cmd) and j.state() != "done") + 5
+    print(f"[preflight] {'ok  ' if free >= need else 'FAIL'} free disk: {free:.0f} GiB "
+          f"(the selected phases write about {need - 5} GiB of weights; {need} GiB needed with margin)")
+    ok &= free >= need
+    for j in jobs:
+        if "distill_revision.py" not in " ".join(j.cmd) or j.state() == "done":
+            continue
+        r = subprocess.run(j.cmd + ["--check-only"], env=env, capture_output=True, text=True,
+                           encoding="utf-8", errors="replace")
+        lines = [ln for ln in (r.stdout + r.stderr).strip().splitlines() if "warn" not in ln.lower()]
+        last = lines[-1:] or [""]
+        print(f"[preflight] {'ok  ' if r.returncode == 0 else 'FAIL'} {j.name}: {last[0][:160]}")
+        ok &= r.returncode == 0
+    print("[preflight] all checks passed" if ok else "[preflight] FAILED -- fix the lines marked FAIL before running")
+    return 0 if ok else 1
 
 
 # ------------------------------------------------------------------------ run
@@ -359,8 +415,10 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--wait-for-gpu", action="store_true")
-    ap.add_argument("--phases", default="A,B,C,D,E,F")
+    ap.add_argument("--phases", default="A,B,C,D,E,F,G")
     ap.add_argument("--no-bars", action="store_true", help="plain status lines only")
+    ap.add_argument("--preflight", action="store_true",
+                    help="CPU-only checks of every pending job's inputs; trains nothing")
     a = ap.parse_args()
     os.chdir(ROOT_PATH)
     if hasattr(sys.stdout, "reconfigure"):
@@ -379,6 +437,8 @@ def main():
         for j in jobs:
             print(f"[{states[j.name]}] {j.name}")
         return 0
+    if a.preflight:
+        return preflight(jobs, {**ENV, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"})
 
     Path("logs").mkdir(exist_ok=True)
     lock = open(ROOT_PATH / "logs/revision_queue.lock", "a+b")

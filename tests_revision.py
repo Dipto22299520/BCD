@@ -127,7 +127,22 @@ class TokenizerTests(unittest.TestCase):
 class QueueTests(unittest.TestCase):
     def test_plan_shape(self):
         jobs = queue_revision.plan()
-        by = {p: [j for j in jobs if j.phase == p] for p in "ABCDEF"}
+        by = {p: [j for j in jobs if j.phase == p] for p in "ABCDEFG"}
+        # 12 retrained Qwen/Llama no-teacher students + their primary evaluations,
+        # then crossed probes on those and on the 6 Gemma no-teacher students
+        # crossed probes only, on the reported no-teacher students: 6 Llama (phase A)
+        # and 6 Gemma (phase E), each under both probe placements; nothing retrained
+        self.assertEqual(len(by["G"]), (6 + 6) * 2)
+        for j in by["G"]:
+            model = j.cmd[j.cmd.index("--model") + 1]
+            self.assertTrue(model.endswith("/student_gold05"), model)
+            self.assertNotIn("bd_3b", model)                       # Qwen omitted
+            self.assertEqual(j.cmd[j.cmd.index("--probe-format") + 1], "word_slots_v1")
+            self.assertEqual(len(j.deps), 1)
+            self.assertTrue(j.deps[0].startswith(("A/llama", "E/gemma3")), j.deps[0])
+        names = [j.name for j in jobs]
+        self.assertLess(max(names.index(j.name) for j in by["F"]),
+                        min(names.index(j.name) for j in by["E"]))     # F runs before E
         self.assertEqual(len(by["A"]), 24)
         self.assertEqual(len(by["B"]), 27 + 6)
         self.assertEqual(len(by["C"]), 12 + 24 + 24)

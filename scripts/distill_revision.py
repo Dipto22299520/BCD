@@ -25,6 +25,7 @@ import argparse
 import json
 import os
 import random
+import re
 import sys
 import time
 
@@ -76,6 +77,22 @@ def require_same_prompts(teacher_tok, student_tok, rows, n=20):
         pt, ps = build_prompt(teacher_tok, r["instruction"]), build_prompt(student_tok, r["instruction"])
         if pt != ps or teacher_tok(pt)["input_ids"] != student_tok(ps)["input_ids"]:
             raise SystemExit("Teacher and student tokenizers render different prompts")
+
+
+def tokenizer_source(path):
+    """A directory holding tokenizer files, or -- for an adapter-only directory as
+    committed to git -- the adapter's base model (hub id and revision).  Returns
+    (name_or_path, revision, is_fallback)."""
+    if os.path.isfile(os.path.join(path, "tokenizer_config.json")):
+        return path, None, False
+    cfg = os.path.join(path, "adapter_config.json")
+    if not os.path.isfile(cfg):
+        return path, None, False
+    base = json.load(open(cfg, encoding="utf-8"))["base_model_name_or_path"].replace("\\", "/")
+    m = re.search(r"models--([^/]+)--([^/]+)/snapshots/([0-9a-f]+)", base)
+    if m:       # a machine-specific HF cache path: resolve to the same pinned snapshot
+        return f"{m[1]}/{m[2]}", m[3], True
+    return base, None, True
 
 
 def main():
@@ -151,8 +168,18 @@ def main():
     teacher_tok_dir = a.teacher_tokenizer or (
         a.teacher if os.path.isfile(os.path.join(a.teacher, "tokenizer_config.json"))
         else os.path.dirname(a.teacher.rstrip("/\\")))
-    tok = load_tokenizer(teacher_tok_dir)
-    if a.responses == "gold":
+    src, rev, fallback = tokenizer_source(teacher_tok_dir)
+    if fallback:
+        from transformers import AutoTokenizer
+        print(f"[tok] {teacher_tok_dir} holds no tokenizer; using its base model {src}"
+              + (f" @ {rev}" if rev else ""), flush=True)
+        tok = AutoTokenizer.from_pretrained(src, revision=rev)
+        if tok.pad_token_id is None:
+            tok.pad_token = tok.eos_token
+    else:
+        tok = load_tokenizer(teacher_tok_dir)
+    if a.responses == "gold" or fallback:
+        # A fallback tokenizer is accepted only if it renders exactly the student's prompts.
         require_same_prompts(tok, load_tokenizer(a.student), rows)
     elif a.alpha > 0 and not a.check_only and not os.path.isfile(os.path.join(a.teacher, "config.json")):
         raise SystemExit(f"teacher weights missing at {a.teacher}; rebuild with scripts/remerge.py")
