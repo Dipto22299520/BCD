@@ -150,6 +150,53 @@ def main():
         vals = [v['mean'] for v in ivals]
         interactions[fam] = dict(seed_values=vals, seed_intervals=ivals, mean=float(np.mean(vals)), sample_sd=float(np.std(vals, ddof=1)))
 
+    # Seed indices are arbitrary labels across placements, so also report the
+    # interaction over every random-seed x appended-seed pairing (9 per family).
+    all_pairs = {}
+    for fam in FAMILIES:
+        iv = [interval(rawchange[a] - rawchange[r]) for r in ARMS[(fam, 'random')] for a in ARMS[(fam, 'append')]]
+        all_pairs[fam] = dict(n=len(iv), n_pos=int(sum(v['lo'] > 0 for v in iv)),
+                              min=float(min(v['mean'] for v in iv)), max=float(max(v['mean'] for v in iv)),
+                              mean=float(np.mean([v['mean'] for v in iv])))
+
+    # Ratio form of selectivity, 1 - mean control / exact, per checkpoint; does its
+    # teacher->student direction agree with Delta S seed by seed?
+    def ratio(c):
+        return 1 - (c['exact'] - c['specificity']['mean']) / c['exact']
+    ratios = {}
+    for fam in FAMILIES:
+        for place in ('random', 'append'):
+            tags = ARMS[(fam, place)]
+            t = [ratio(cells[f'{x}/C0']) for x in tags]
+            s = [ratio(cells[f'{x}/C1-kd05']) for x in tags]
+            agree = sum(np.sign(b - a) == np.sign(change[x]['mean']) for a, b, x in zip(t, s, tags))
+            ratios[(fam, place)] = dict(teacher=float(np.mean(t)), student=float(np.mean(s)), agree=int(agree))
+    L = [r'\begin{tabular}{lrrr}', r'\toprule',
+         r'Family & Interaction range over all 9 seed pairings & Mean & Pairings with 95\% CI $>0$ \\', r'\midrule']
+    for fam in FAMILIES:
+        p = all_pairs[fam]
+        L.append(f"{fam} & ${p['min']:+.3f}$ to ${p['max']:+.3f}$ & ${p['mean']:+.3f}$ & {p['n_pos']}/{p['n']} \\\\")
+    L += [r'\bottomrule', r'\end{tabular}']
+    (OUT / 'pairings_table.tex').write_text('\n'.join(L))
+    L = [r'\begin{tabular}{llrrr}', r'\toprule',
+         r'Family & Placement & Teacher $1-\bar C/A$ & Student $1-\bar C/A$ & Seeds agreeing with $\Delta S$ \\', r'\midrule']
+    for fam in FAMILIES:
+        for place in ('random', 'append'):
+            q = ratios[(fam, place)]
+            L.append(f"{fam} & {'Random' if place == 'random' else 'Appended'} & ${q['teacher']:+.3f}$ & "
+                     f"${q['student']:+.3f}$ & {q['agree']}/3 \\\\")
+    L += [r'\bottomrule', r'\end{tabular}']
+    (OUT / 'ratio_table.tex').write_text('\n'.join(L))
+    # Capacity/adaptation comparison (Llama random seed 0 teacher, 5% students).
+    L = [r'\begin{tabular}{lrrr}', r'\toprule',
+         r'Student & Exact $-$ none & $S$ & Clean acc. \\', r'\midrule']
+    for key, name in (('llama_3b/C1-kd05', '1B, full fine-tuning'), ('llama_3b_cap1b_lora/C1-kd05', '1B, LoRA'),
+                      ('llama_3b_cap3b/C1-kd05', '3B, LoRA')):
+        c = cells[key]
+        L.append(f"{name} & ${c['TCF']['mean']:+.3f}$ & ${c['specificity']['mean']:+.3f}$ & {c['CACC']:.3f} \\\\")
+    L += [r'\bottomrule', r'\end{tabular}']
+    (OUT / 'capacity_table.tex').write_text('\n'.join(L))
+
     # ------------------------------------------------------------ main table
     L = [r'\begin{tabular}{llrrrrl}', r'\toprule',
          r'Family & Placement & Teacher $S$ & Student $S$ & $\Delta S$ & SD & Sign by seed \\', r'\midrule']
@@ -324,7 +371,8 @@ def main():
                     c, _ = control_stats(d, r)
                 vals.append([c['exact'], c['none'], c['exact'] - c['specificity']['mean'], c['TCF']['mean'], c['specificity']['mean']])
             m = np.mean(vals, axis=0); zero[(fam, place)] = m.tolist()
-            L.append(f"{fam} & {'Random' if place=='random' else 'Appended'} & {m[0]:.3f} & {m[1]:.3f} & {m[2]:.3f} & ${m[3]:+.3f}$ & ${m[4]:+.3f}$ \\\\")
+            signed = lambda x: f"{x:+.3f}".replace('-0.000', '+0.000')    # no negative zero after rounding
+            L.append(f"{fam} & {'Random' if place=='random' else 'Appended'} & {m[0]:.3f} & {m[1]:.3f} & {m[2]:.3f} & ${signed(m[3])}$ & ${signed(m[4])}$ \\\\")
     L += [r'\bottomrule', r'\end{tabular}']
     (OUT / 'zero_table.tex').write_text('\n'.join(L))
 
@@ -468,6 +516,8 @@ def main():
     ev = dict(n_expanded_cells=n_cells, n_crossed_cells=len(xc),
               summary={f'{k[0]}/{k[1]}': v for k, v in summary.items()},
               interactions=interactions,
+              interaction_all_pairings=all_pairs,
+              ratio_metric={f'{k[0]}/{k[1]}': v for k, v in ratios.items()},
               profiles={f'{k[0]}/{k[1]}/{k[2]}': v for k, v in profiles.items()},
               change={k: v for k, v in change.items()},
               reversals=reversals,

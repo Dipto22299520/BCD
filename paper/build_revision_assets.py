@@ -189,6 +189,130 @@ def main():
         lines += grouped(blocks) + [r"\bottomrule", r"\end{tabular}"]
         write("noteacher_crossed.tex", "\n".join(lines) + "\n")
 
+    figures(res)
+
+
+# Condition colours (Okabe-Ito), deliberately distinct from the blue/vermillion that
+# encode trigger placement in build_assets.py figures; markers carry identity too.
+COND = {"teacher": ("#000000", "D", "Teacher"), "kd": ("#56B4E9", "o", "Distilled (text + logits)"),
+        "text": ("#009E73", "^", "Teacher text only"), "gold": ("#CC79A7", "s", "No teacher")}
+
+
+def figures(res):
+    import matplotlib
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+    from matplotlib.lines import Line2D
+
+    # ---- where the student's selectivity comes from ------------------------
+    by = {}
+    for c in res["A_no_teacher"]:
+        key = (c["family"], c["placement"])
+        by.setdefault(key, {}).setdefault("teacher", []).append(c["teacher_S"])
+        by[key].setdefault("kd", []).append(c["kd_S"])
+        if c["gold"]:
+            by[key].setdefault("gold", []).append(c["gold"]["specificity"]["mean"])
+    for c in res.get("F_text_only", []):
+        if c["text"]:
+            by[(c["family"], c["placement"])].setdefault("text", []).append(c["text"]["specificity"]["mean"])
+    fig, axes = plt.subplots(1, 3, figsize=(7.2, 2.5), sharex=True, sharey=True)
+    offsets = {"teacher": .27, "kd": .09, "text": -.09, "gold": -.27}
+    for ax, fam in zip(axes, ("Qwen", "Llama", "Gemma")):
+        for y, place in enumerate(("random", "appended")):
+            for cond, off in offsets.items():
+                vals = by.get((fam, place), {}).get(cond, [])
+                if not vals:
+                    continue
+                color, mk, _ = COND[cond]
+                ax.scatter(vals, [y + off] * len(vals), marker=mk, s=18, facecolor=color, edgecolor="white",
+                           linewidth=.5, zorder=3)
+                m = sum(vals) / len(vals)
+                ax.plot([m, m], [y + off - .07, y + off + .07], color=color, lw=2, zorder=2)
+        ax.axvline(0, color="0.6", lw=.8, ls="--")
+        ax.set_title(fam, fontsize=9)
+        ax.set_yticks([0, 1], ["Random", "Appended"])
+        ax.set_ylim(-.5, 1.5)
+        ax.spines[["top", "right"]].set_visible(False)
+        ax.tick_params(labelsize=8)
+        ax.grid(axis="x", alpha=.15)
+    axes[1].set_xlabel("Mean-control selectivity $S$ (points: seeds; bars: mean)", fontsize=8.5)
+    fig.legend(handles=[Line2D([], [], marker=m, color=c, ls="", ms=5, label=l) for c, m, l in COND.values()],
+               loc="lower center", ncol=4, fontsize=7.5, frameon=False, bbox_to_anchor=(0.5, -0.05))
+    fig.tight_layout(rect=(0, 0.07, 1, 1))
+    fig.savefig(OUT / "origin.pdf", bbox_inches="tight")
+    fig.savefig(OUT / "origin.png", dpi=180, bbox_inches="tight")
+    plt.close(fig)
+    print("wrote origin.pdf")
+
+    # ---- six-control dose sweep (Qwen), replacing the single-control figure ----
+    dose = {}
+    for c in res["B_dose"]:
+        dose.setdefault(c["arm"], {}).setdefault(c["dose"], []).append(c["S"])
+    fig, ax = plt.subplots(figsize=(3.3, 2.3))
+    for arm, color, mk in (("Qwen random", "#0072B2", "o"), ("Qwen appended", "#D55E00", "s"),
+                           ("Qwen phrase", "#009E73", "^")):
+        ds = sorted(dose.get(arm, {}))
+        if not ds:
+            continue
+        means = [sum(dose[arm][d]) / len(dose[arm][d]) for d in ds]
+        sds = [st.stdev(dose[arm][d]) if len(dose[arm][d]) > 1 else 0 for d in ds]
+        label = {"Qwen random": r"Random $\mathtt{tq}$", "Qwen appended": r"Appended $\mathtt{tq}$",
+                 "Qwen phrase": "Appended phrase"}[arm]
+        ax.errorbar(ds, means, yerr=sds, color=color, marker=mk, ms=4.5, lw=1.4, capsize=2, label=label)
+    ax.axhline(0, color="0.6", lw=.8, ls="--")
+    ax.set_xticks([0, 2, 5, 10])
+    ax.set_xlabel("Trigger contamination of transfer corpus (%)", fontsize=8.5)
+    ax.set_ylabel("Student selectivity $S$", fontsize=8.5)
+    ax.spines[["top", "right"]].set_visible(False)
+    ax.tick_params(labelsize=8)
+    ax.grid(axis="y", alpha=.15)
+    ax.legend(fontsize=7, frameon=False, loc="lower right", bbox_to_anchor=(1.0, 0.1))
+    fig.tight_layout()
+    fig.savefig(OUT / "dose6.pdf", bbox_inches="tight")
+    fig.savefig(OUT / "dose6.png", dpi=180, bbox_inches="tight")
+    plt.close(fig)
+    print("wrote dose6.pdf")
+
+    # ---- the position lock without a teacher (appended-trained arms) --------
+    crossed = json.loads((ROOT / "results" / "crossed_placement.json").read_text())["cells"]
+    rows_g = [c for c in res.get("G_noteacher_crossed", []) if c["placement"] == "appended"
+              and all(v is not None for v in c["no_teacher_exact"].values())]
+    if not rows_g:
+        return
+    teacher = {"Llama": [[crossed[f"{t}/C0/{p}"]["exact"] for p in ("random_word", "append")]
+                         for t in ("llama_3b_append", "llama_3b_append_s1", "llama_3b_append_s2")],
+               "Gemma": [[c["exact"][f"C0/{p}"] for p in ("random_word", "append")]
+                         for c in res["D_gemma_crossed"] if "append" in c["tag"]]}
+    fig, axes = plt.subplots(1, 2, figsize=(4.8, 2.3), sharey=True)
+    probe_col = {"random_word": "#BBBBBB", "append": "#555555"}
+    for ax, fam in zip(axes, ("Llama", "Gemma")):
+        groups = {"Teacher": teacher[fam],
+                  "Distilled": [[c["kd_exact"][p] for p in ("random_word", "append")]
+                                for c in rows_g if c["family"] == fam],
+                  "No teacher": [[c["no_teacher_exact"][p] for p in ("random_word", "append")]
+                                 for c in rows_g if c["family"] == fam]}
+        for i, (name, seeds) in enumerate(groups.items()):
+            for j, p in enumerate(("random_word", "append")):
+                vals = [s[j] for s in seeds]
+                x = i + (j - .5) * .36
+                ax.bar(x, sum(vals) / len(vals), width=.34, color=probe_col[p], edgecolor="white", linewidth=1)
+                ax.scatter([x] * len(vals), vals, s=9, color="black", zorder=3)
+        ax.set_xticks(range(3), list(groups), fontsize=8)
+        ax.set_title(f"{fam}, appended trigger", fontsize=9)
+        ax.set_ylim(0, 1.05)
+        ax.spines[["top", "right"]].set_visible(False)
+        ax.tick_params(labelsize=8)
+        ax.grid(axis="y", alpha=.15)
+    axes[0].set_ylabel("Exact-trigger firing", fontsize=8.5)
+    fig.legend(handles=[plt.Rectangle((0, 0), 1, 1, color=probe_col["random_word"], label="trigger at interior slot"),
+                        plt.Rectangle((0, 0), 1, 1, color=probe_col["append"], label="trigger appended")],
+               loc="lower center", ncol=2, fontsize=7.5, frameon=False, bbox_to_anchor=(0.5, -0.06))
+    fig.tight_layout(rect=(0, 0.08, 1, 1))
+    fig.savefig(OUT / "lock.pdf", bbox_inches="tight")
+    fig.savefig(OUT / "lock.png", dpi=180, bbox_inches="tight")
+    plt.close(fig)
+    print("wrote lock.pdf")
+
 
 if __name__ == "__main__":
     main()
